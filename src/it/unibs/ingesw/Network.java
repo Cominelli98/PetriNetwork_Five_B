@@ -3,7 +3,7 @@ package it.unibs.ingesw;
 import java.util.ArrayList;
 
 
-public class Network implements IDNameGiver{
+public class Network implements Generic_network{
 	
 	private ArrayList<Location> locations;
 	private ArrayList<Transition> transitions;
@@ -140,6 +140,11 @@ public class Network implements IDNameGiver{
 				return t.getName();
 		}
 		return null;
+	}
+
+	@Override
+	public ArrayList<Link> getLinks() {
+		return netLinks;
 	}
 
 }

@@ -2,7 +2,7 @@ package it.unibs.ingesw;
 
 import java.util.ArrayList;
 
-public class Petri_network implements IDNameGiver{
+public class Petri_network implements Generic_network{
 	protected ArrayList<Petri_location> petriLocations;
 	protected ArrayList<Petri_transition> petriTransitions;
 	protected ArrayList<Link> petriNetLinks;
