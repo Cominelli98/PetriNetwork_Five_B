@@ -20,7 +20,7 @@ public final class WriteN {
 	 * prende in ingresso un oggetto IDNameGiver e si occupa di salvarlo nel corretto file in base alla sua natura
 	 * @param net
 	 */
-	public static void save(IDNameGiver net) {
+	public static void save(IDNameGiver net) {	//metodo di selezione del file
 		Gson gson = new Gson();
 		String data;
 		if (net.getClass() == Network.class) 
@@ -42,6 +42,8 @@ public final class WriteN {
 			System.out.println(SAVE_ERROR);
 		}
 	}
+	
+	
 	
 	
 	/**
@@ -74,6 +76,8 @@ public final class WriteN {
 			}
 		}
 	}
+	
+	//divisione file creation
 	
 }
 	

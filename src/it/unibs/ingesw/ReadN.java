@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 import com.google.gson.Gson;
 
+	//TODO:	creazione classe di utilità per la semplificazione dei getters
+
 public final class ReadN {
 	
 	private static final int ID_INIZIALE = -1;
@@ -49,7 +51,7 @@ public final class ReadN {
 	 * @throws FileNotFoundException
 	 * @throws IllegalArgumentException: classe non valida
 	 */
-	public static ArrayList<String> readFile(Class c)throws FileNotFoundException, IllegalArgumentException {
+	public static ArrayList<String> readFile(Class c)throws FileNotFoundException, IllegalArgumentException {	//metodo di selelzione file tipo writeN
 		String data;
 		if (c == Network.class) 
 			data = FILE_NET;
@@ -78,7 +80,7 @@ public final class ReadN {
 	/**
 	 * legge e retituisce tutti gli id delle reti salvate sul file
 	 * @param c :classe per scegliere quale file leggere
-	 * @return
+	 * @return IDs
 	 */
 	public static ArrayList<Integer> getNetIDsFromFile(Class c) {
 		ArrayList<Integer> IDs = new ArrayList<>();
