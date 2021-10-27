@@ -9,12 +9,12 @@ public final class Menu_Reti {
 	
 	final static String MENU_RETI[] = {
 			"Scegli cosa fare:",
-			"___________________________",
+			"_________",
 			"1:Crea location",
 			"2:Crea transition",
 			"3:Crea link",
 			"0:Indietro",
-			"___________________________"};
+			"_________"};
 	final static String NOME_GIA_PRESENTE_RETE = "Esiste già una rete con questo nome, inserisci un altro nome:";
 	final static String NOME_GIA_PRESENTE_LOCATION = "Esiste già una location con questo nome, inserisci un altro nome:";
 	final static String NOME_GIA_PRESENTE_TRANSITION = "Esiste già una transition con questo nome, inserisci un altro nome:";
@@ -29,28 +29,10 @@ public final class Menu_Reti {
 	 * Garantisce unicità previa check sul nome della rete.
 	 * @throws FileNotFoundException 
 	 */
-	public static void createNetwork(Network n, ArrayList<Network> ns )  {
-		String name;
-		boolean exists = false;
-		do {
-			System.out.println("Inserisci il nome della nuova rete:");
-			name = Utility.readString();
-			try {
-				exists = checkNetExistence(name, ns);
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			}
-			
-			if (exists)
-				System.out.println(NOME_GIA_PRESENTE_RETE);
-		}while(exists);
-		Network network = new Network(name);
-		ns.add(network);
-		n = network;
+	public static void createNetwork(ArrayList<Network> ns)  {
+		Network network = networkInitializer(ns);
+		createBase(network);
 		int select = -1;
-		
-		createBase(n);
-		
 		do {
 			for (String s : MENU_RETI) {
 				System.out.println(s);
@@ -62,32 +44,32 @@ public final class Menu_Reti {
 				case 0:	//Indietro
 					break;
 				case 1:
-					createLocation(n);
+					createLocation(network);
 					System.out.println(ASKLINK);
-					System.out.print(n.getTransitionsList());
-					num = Utility.readLimitedInt(0, n.getTransitions().size()-1);
-					createLink(n.getTransition(num), n.getLastLocation(), n);
+					System.out.print(network.getTransitionsList());
+					num = Utility.readLimitedInt(0, network.getTransitions().size()-1);
+					createLink(network.getTransition(num), network.getLastLocation(), network);
 					num = -1;
 					break;
 				case 2:	//Creazione di una transizione
-					createTransition(n);
+					createTransition(network);
 					System.out.println(ASKLINK);
-					System.out.print(n.getLocationsList());
-					num = Utility.readLimitedInt(0, n.getLocations().size()-1);
-					createLink(n.getLastTransition(), n.getLocation(num), n);
+					System.out.print(network.getLocationsList());
+					num = Utility.readLimitedInt(0, network.getLocations().size()-1);
+					createLink(network.getLastTransition(), network.getLocation(num), network);
 					num = -1;
 					break;
 				case 3:	//Creazione di un link
 					int loc;
 					int trans;
 					System.out.println("ELENCO LOCATIONS");
-					System.out.print(n.getLocationsList());
-					loc = Utility.readLimitedInt(0, n.getLocations().size()-1);
+					System.out.print(network.getLocationsList());
+					loc = Utility.readLimitedInt(0, network.getLocations().size()-1);
 					System.out.println(ASKLINK);
 					System.out.println("ELENCO TRANSITIONS");
-					System.out.print(n.getTransitionsList());
-					trans = Utility.readLimitedInt(0, n.getTransitions().size()-1);
-					createLink(n.getTransition(trans), n.getLocation(loc), n);
+					System.out.print(network.getTransitionsList());
+					trans = Utility.readLimitedInt(0, network.getTransitions().size()-1);
+					createLink(network.getTransition(trans), network.getLocation(loc), network);
 					break;
 			}
 		}while(select != 0);
@@ -187,21 +169,23 @@ public final class Menu_Reti {
 		return false;
 	}
 	
-	/**
-	 * Check sull'univocità del nome di una rete
-	 * @param name
-	 * @return yes se esiste già una rete con quel nome su file o in locale
-	 */
-	private static boolean checkNetExistence(String name, ArrayList<Network> ns) throws FileNotFoundException{
-		if(ns.size()>0) {
-			for (Network n : ns) {
-				if(Utility.nameCheck(n, name)){
-					return true;
+	
+	private static Network networkInitializer(ArrayList<Network> ns) {
+		String name;
+		boolean exists = false;
+		do {
+			name = Utility.readCheckedName(ns);
+			try {
+				exists = ReadN.checkNetNameExistence(name, Network.class);
 				}
+			catch(FileNotFoundException e) {
+				e.printStackTrace();
 			}
-		}
-		
-		return ReadN.checkNetNameExistence(name, Network.class);
-		
+			if (exists)
+				System.out.println(NOME_GIA_PRESENTE_RETE);
+		}while(exists);
+		Network network = new Network(name);
+		ns.add(network);
+		return network;
 	}
 }

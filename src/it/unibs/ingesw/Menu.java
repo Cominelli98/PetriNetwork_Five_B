@@ -19,7 +19,6 @@ public final class Menu {
 			
 	};
 	
-	private static Network currentNetwork;
 	private static ArrayList<Network> networks;
 	private static ArrayList<Petri_network> petriNetworks;
 	private static ArrayList<Priority_network> priorityNetworks;
@@ -88,10 +87,6 @@ public final class Menu {
 				petriNetworks.add((Petri_network) ReadN.jsonToObject(s, Petri_network.class));
 			for(String s : pnp)
 				priorityNetworks.add((Priority_network) ReadN.jsonToObject(s, Priority_network.class));
-	}
-	
-	public static Network getCurrentNetwork() {
-		return currentNetwork;
 	}
 	
 	public static ArrayList<Network> getNetworks(){

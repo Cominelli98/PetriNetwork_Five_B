@@ -8,6 +8,7 @@ public final class Utility {
 	
 	private static Scanner scanner = creaScanner();
 	private final static String ERRORE_INSERIMENTO = "Errore inserimento, per favore inserisci un valore appropriato";
+	private final static String NOME_PRESENTE = "Nome già presente, prego reinserire";
 	
 	private static Scanner creaScanner() {
 		Scanner creato = new Scanner(System.in);
@@ -75,11 +76,30 @@ public final class Utility {
 	 return max;
 	}
 	
-	
+	public static String readCheckedName(ArrayList<? extends IDNameGiver> toCheck){
+			
+			String name = "";
+			boolean finito = true;
+			do {
+				System.out.println("Inserisci il nome:");
+				name = readString();
+				if(toCheck.size()>0) {
+					for (IDNameGiver n : toCheck) {
+						if (nameCheck(n, name)) {
+							finito = false;
+							System.out.println(NOME_PRESENTE);
+							var throwable = scanner.nextLine();
+						}
+					}
+				}
+			}while(!finito);
+			return name;
+		}
 	
 	public static boolean nameCheck(IDNameGiver n, String s) {
 		if (n.getName().toUpperCase().equals(s.toUpperCase()))
 			return true;
 		return false;
 	}
+	
 }

@@ -64,7 +64,7 @@ public final class Menu_configuratore {
 			select = Utility.readLimitedInt(0, MENU_CONFIGURATORE.length-4);
 			switch(select) {
 			case 1:	//Crea una nuova rete
-				Menu_Reti.createNetwork(Menu.getCurrentNetwork(), Menu.getNetworks());
+				Menu_Reti.createNetwork(Menu.getNetworks());
 				break;
 			case 2:	//Crea una nuova rete di petri
 				Menu_Petri.createPetri(Menu.getPetriNetworks(), Menu.getSavedN());
