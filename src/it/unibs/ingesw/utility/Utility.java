@@ -76,26 +76,26 @@ public final class Utility {
 	 }
 	 return max;
 	}
-	
-	public static String readCheckedName(ArrayList<? extends IDNameGiver> toCheck){
-			
-			String name = "";
-			boolean finito = true;
-			do {
-				System.out.println("Inserisci il nome:");
-				name = readString();
-				if(toCheck.size()>0) {
-					for (IDNameGiver n : toCheck) {
-						if (nameCheck(n, name)) {
-							finito = false;
-							System.out.println(NOME_PRESENTE);
-							var throwable = scanner.nextLine();
-						}
+
+	public static String readCheckedName(ArrayList<? extends IDNameGiver> toCheck, String RICHIESTA, String ERRORE){
+		
+		String name = "";
+		boolean finito = true;
+		do {
+			System.out.println(RICHIESTA);
+			name = readString();
+			if(toCheck.size()>0) {
+				for (IDNameGiver n : toCheck) {
+					if (nameCheck(n, name)) {
+						finito = false;
+						System.out.println(ERRORE);
+						var throwable = scanner.nextLine();
 					}
 				}
-			}while(!finito);
-			return name;
-		}
+			}
+		}while(!finito);
+		return name;
+	}
 	
 	public static boolean nameCheck(IDNameGiver n, String s) {
 		if (n.getName().toUpperCase().equals(s.toUpperCase()))

@@ -21,6 +21,9 @@ public final class Menu_Reti {
 	final static String NOME_GIA_PRESENTE_TRANSITION = "Esiste già una transition con questo nome, inserisci un altro nome:";
 	final static String LINK_GIA_PRESENTE = "Link già presente";
 	final static String ASKLINK = "A cosa vuoi collegarla? Inserisci il numero relativo";
+	final static String INSERIMENTO_TR = "Inserisci il nome della nuova transition: ";
+	final static String INSERIMENTO_RETE = "Inserisci il nome della nuova rete: ";
+	final static String INSERIMENTO_LOC = "Inserisci il nome della nuova location: ";
 	
 	
 	/**
@@ -91,20 +94,7 @@ public final class Menu_Reti {
 	 */
 	private static void createLocation(Network n) {
 		
-		System.out.println("Inserisci il nome della nuova location: ");
-		boolean isEqual;
-		String name;
-		do {
-			isEqual = false;
-			name = Utility.readString();
-			for (Location l : n.getLocations()) {
-				if(Utility.nameCheck(l, name)) {
-					isEqual = true;
-					System.out.println(NOME_GIA_PRESENTE_LOCATION);
-					break;
-				}
-			}
-		}while(isEqual);
+		String name = Utility.readCheckedName(n.getLocations(), INSERIMENTO_LOC, NOME_GIA_PRESENTE_LOCATION);
 		n.addLocation(name);
 	}
 	
@@ -113,20 +103,9 @@ public final class Menu_Reti {
 	 */
 	private static void createTransition(Network n) {
 			
-			System.out.println("Inserisci il nome della nuova transition: ");
-			boolean isEqual;
-			String name;
-			do {
-				isEqual = false;
-				name = Utility.readString();
-				for (Transition l : n.getTransitions()) {
-					if(Utility.nameCheck(l, name)) {
-						isEqual = true;
-						System.out.println(NOME_GIA_PRESENTE_TRANSITION);
-					}
-				}
-			}while(isEqual);
-			n.addTransition(name);
+		String name;
+		name = Utility.readCheckedName(n.getTransitions(), INSERIMENTO_TR, NOME_GIA_PRESENTE_TRANSITION);
+		n.addTransition(name);
 		}
 	
 	/**
@@ -175,7 +154,7 @@ public final class Menu_Reti {
 		String name;
 		boolean exists = false;
 		do {
-			name = Utility.readCheckedName(ns);
+			name = Utility.readCheckedName(ns, INSERIMENTO_RETE, NOME_GIA_PRESENTE_RETE);
 			try {
 				exists = ReadN.checkNetNameExistence(name, Network.class);
 				}
