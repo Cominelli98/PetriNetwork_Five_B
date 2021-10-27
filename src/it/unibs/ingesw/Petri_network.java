@@ -2,7 +2,7 @@ package it.unibs.ingesw;
 
 import java.util.ArrayList;
 
-public class Petri_network implements IDNameGiver{
+public class Petri_network implements GenericNetwork{
 	protected ArrayList<Petri_location> petriLocations;
 	protected ArrayList<Petri_transition> petriTransitions;
 	protected ArrayList<Link> petriNetLinks;
@@ -26,15 +26,7 @@ public class Petri_network implements IDNameGiver{
 		this.petriLocations = pt.getLocations();
 		this.petriTransitions = pt.getTransitions();
 		this.petriNetLinks = pt.getLinks();
-		this.petriNetId = pt.getNetId();
-	}
-	
-	public ArrayList<Petri_location> getLocations(){
-		return petriLocations;
-	}
-	
-	public ArrayList<Petri_transition> getTransitions(){
-		return petriTransitions;
+		this.petriNetId = pt.getId();
 	}
 	
 	public int getFatherNetId() {
@@ -44,10 +36,6 @@ public class Petri_network implements IDNameGiver{
 	@Override
 	public String getName() {
 		return name;
-	}
-	
-	public int getNetId() {
-		return petriNetId;
 	}
 	
 	/**
@@ -86,8 +74,34 @@ public class Petri_network implements IDNameGiver{
 		return s;
 	}
 	
+	@Override
+	public ArrayList<Petri_location> getLocations(){
+		return petriLocations;
+	}
+	
+	@Override
+	public ArrayList<Petri_transition> getTransitions(){
+		return petriTransitions;
+	}
+	
+	@Override
+	public Petri_transition getTransition(int i) {
+		return petriTransitions.get(i);
+	}
+
+	@Override
+	public Petri_location getLocation(int i) {
+		return petriLocations.get(i);
+	}
+	
+	@Override
 	public ArrayList<Link> getLinks(){
 		return this.petriNetLinks;
+	}
+	
+	@Override
+	public Link getLink(int i) {
+		return petriNetLinks.get(i);
 	}
 
 	@Override
@@ -146,4 +160,5 @@ public class Petri_network implements IDNameGiver{
 				pl.addToken(quantity);
 		}
 	}
+
 }
