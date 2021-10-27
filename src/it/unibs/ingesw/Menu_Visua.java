@@ -2,6 +2,8 @@ package it.unibs.ingesw;
 
 import java.util.ArrayList;
 
+import it.unibs.ingesw.utility.Utility;
+
 public final class Menu_Visua {
 	
 	final static String MENUVISUALIZZA[] = {

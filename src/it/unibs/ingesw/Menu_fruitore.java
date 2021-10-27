@@ -1,5 +1,7 @@
 package it.unibs.ingesw;
 
+import it.unibs.ingesw.utility.Utility;
+
 public final class Menu_fruitore {
 	
 	final static String MENU_FRUITORE[] = {

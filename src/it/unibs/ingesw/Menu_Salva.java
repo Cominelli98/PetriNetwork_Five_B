@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import it.unibs.ingesw.ioGson.ReadN;
 import it.unibs.ingesw.ioGson.WriteN;
+import it.unibs.ingesw.utility.Utility;
 
 public final class Menu_Salva {
 

@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import it.unibs.ingesw.ioGson.ReadN;
+import it.unibs.ingesw.utility.Utility;
 
 public final class Menu_configuratore {
 	

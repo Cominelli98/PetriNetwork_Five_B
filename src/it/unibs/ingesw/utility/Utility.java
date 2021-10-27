@@ -1,5 +1,6 @@
-package it.unibs.ingesw;
+package it.unibs.ingesw.utility;
 
+import it.unibs.ingesw.*;
 import java.util.*;
 import java.util.Scanner;
 
