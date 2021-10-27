@@ -1,5 +1,6 @@
-package it.unibs.ingesw;
+package it.unibs.ingesw.ioGson;
 
+import it.unibs.ingesw.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;

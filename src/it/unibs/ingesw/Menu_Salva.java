@@ -2,6 +2,9 @@ package it.unibs.ingesw;
 
 import java.util.ArrayList;
 
+import it.unibs.ingesw.ioGson.ReadN;
+import it.unibs.ingesw.ioGson.WriteN;
+
 public final class Menu_Salva {
 
 	private static final String MENUSALVA[] = {

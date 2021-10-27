@@ -3,6 +3,8 @@ package it.unibs.ingesw;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+import it.unibs.ingesw.ioGson.ReadN;
+
 public final class Menu_configuratore {
 	
 	private final static String MENU_CONFIGURATORE[] = {

@@ -3,6 +3,8 @@ package it.unibs.ingesw;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+import it.unibs.ingesw.ioGson.ReadN;
+
 public final class Menu_Petri {
 
 	private final static String MESSAGGI_MENU[] = {

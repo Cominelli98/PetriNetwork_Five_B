@@ -1,7 +1,12 @@
-package it.unibs.ingesw;
+package it.unibs.ingesw.ioGson;
 
 
 import com.google.gson.Gson;
+
+import it.unibs.ingesw.IDNameGiver;
+import it.unibs.ingesw.Network;
+import it.unibs.ingesw.Petri_network;
+import it.unibs.ingesw.Priority_network;
 
 import java.io.File;
 import java.io.FileWriter;
