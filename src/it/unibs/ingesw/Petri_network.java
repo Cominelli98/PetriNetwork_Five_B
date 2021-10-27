@@ -122,11 +122,11 @@ public class Petri_network implements IDNameGiver{
 	}
 	
 	public String nodeNameFromID(int id) {
-		for(Location pl : petriLocations) {
+		for(Petri_location pl : petriLocations) {
 			if(pl.getId() == id)
 				return pl.getName();
 		}
-		for(Transition pt : petriTransitions) {
+		for(Petri_transition pt : petriTransitions) {
 			if(pt.getId() == id)
 				return pt.getName();
 		}

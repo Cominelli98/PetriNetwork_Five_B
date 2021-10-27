@@ -1,0 +1,1 @@
+{"locations":[{"netId":1,"nodeId":10000,"name":"giacomo"},{"netId":1,"nodeId":10001,"name":"gianfranco"}],"transitions":[{"netId":1,"nodeId":0,"nodeName":"pierantonio"}],"netLinks":[{"IDNode1":10000,"IDNode2":0,"netId":1,"orientation":1},{"IDNode1":10001,"IDNode2":0,"netId":1,"orientation":1}],"netId":1,"name":"qwerty","OFFSET":10000}

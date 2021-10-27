@@ -1,11 +1,17 @@
 package it.unibs.ingesw;
 
-public class Petri_location extends Location implements GenericNode{
+public class Petri_location implements PetriNode{
 	
 	private int token;
-
-	public Petri_location(Location l, int petriNetId){
-		super(petriNetId, l.getId(), l.getName());
+	private int netId;
+	private int nodeId;
+	private String nodeName;
+	
+	public Petri_location(int netId, int nodeId, String nodeName) {
+		
+		this.netId = netId;
+		this.nodeId = nodeId;
+		this.nodeName = nodeName;
 		this.token = 0;
 	}
 	
@@ -23,6 +29,21 @@ public class Petri_location extends Location implements GenericNode{
 	
 	public void addToken (int addition) {
 		token = token + addition;
+	}
+
+	@Override
+	public int getNetID() {
+		return netId;
+	}
+
+	@Override
+	public String getName() {
+		return nodeName;
+	}
+
+	@Override
+	public int getId() {
+		return nodeId;
 	}
 	
 }

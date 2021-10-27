@@ -1,11 +1,17 @@
 package it.unibs.ingesw;
 
-public class Petri_transition extends Transition implements GenericNode{
+public class Petri_transition implements PetriNode{
 	private int cost;
 	private int priority;
+	private int netId;
+	private int nodeId;
+	private String nodeName;
 	
-	public Petri_transition(Transition t, int petriNetId) {
-		super(petriNetId, t.getId(), t.getName());
+	public Petri_transition(int netId, int nodeId, String nodeName) {
+		
+		this.netId = netId;
+		this.nodeId = nodeId;
+		this.nodeName = nodeName;
 		this.cost = 1;
 		this.priority = -1;
 	}
@@ -24,5 +30,20 @@ public class Petri_transition extends Transition implements GenericNode{
 	
 	public int getValue() {
 		return this.cost;
+	}
+	
+	@Override
+	public int getNetID() {
+		return netId;
+	}
+
+	@Override
+	public String getName() {
+		return nodeName;
+	}
+
+	@Override
+	public int getId() {
+		return nodeId;
 	}
 }

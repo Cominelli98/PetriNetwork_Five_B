@@ -55,10 +55,10 @@ public final class Converter {
 	}
 	
 	public static Petri_location toPetri (Location l, int petriNetId) {
-		return new Petri_location(l, petriNetId);
+		return new Petri_location(petriNetId, l.getId(), l.getName());
 	}
 	
 	public static Petri_transition toPetri (Transition t, int petriNetId) {
-		return new Petri_transition(t, petriNetId);
+		return new Petri_transition(petriNetId, t.getId(), t.getName());
 	}
 }
