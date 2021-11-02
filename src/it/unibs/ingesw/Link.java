@@ -25,6 +25,7 @@ public class Link {
 			return IDNode2;
 		return IDNode1;
 	}
+	
 
 	public int getLocation() {
 		return IDNode1;

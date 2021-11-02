@@ -161,4 +161,15 @@ public class Petri_network implements GenericNetwork{
 		}
 	}
 
+	@Override
+	public String getLinkOrigin(int i) {
+		return nodeNameFromID(petriNetLinks.get(i).getOrigin());
+	}
+
+	@Override
+	public String getLinkDestination(int i) {
+		// TODO Auto-generated method stub
+		return nodeNameFromID(petriNetLinks.get(i).getDestination());
+	}
+
 }

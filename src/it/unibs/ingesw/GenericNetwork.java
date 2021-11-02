@@ -15,5 +15,9 @@ public interface GenericNetwork extends IDNameGiver{
 	public Node getLocation(int i);
 	
 	public Link getLink(int i);
+	
+	public String getLinkOrigin(int i);
+	
+	public String getLinkDestination(int i);
 
 }

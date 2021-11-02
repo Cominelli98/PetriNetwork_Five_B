@@ -46,7 +46,7 @@ public class Simulatore {
 	private void stampAttivabili() {
 		ArrayList<Petri_transition> transizioni = topPriorityTransitions();
 		System.out.println("Lista transizioni attivabili:");
-		for (int i=0; i<transizioni.size(); i++) {
+		for (int i = 0; i < transizioni.size(); i++) {
 			System.out.println(i + ") " + transizioni.get(i).getName());
 		}
 	}
@@ -91,10 +91,9 @@ public class Simulatore {
 	 * @return boolean
 	 */
 	private boolean attivabile (Petri_transition pt) {
-		boolean exist = checkIfOneLinkExistWithTrans(pt);
 		int x;
 		//prima di tutto controlliamo se almeno un link ha come destinazione la transizione
-		if(!exist)
+		if(!checkIfOneLinkExistWithTrans(pt))
 			return false;
 		for (int i = 0; i< rete.getLinks().size(); i++) {
 			if (rete.getLinks().get(i).getDestination() == pt.getId()) {
