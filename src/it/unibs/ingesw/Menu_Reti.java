@@ -153,17 +153,7 @@ public final class Menu_Reti {
 	private static Network networkInitializer(ArrayList<Network> ns) {
 		String name;
 		boolean exists = false;
-		do {
-			name = Utility.readCheckedName(ns, INSERIMENTO_RETE, NOME_GIA_PRESENTE_RETE);
-			try {
-				exists = ReadN.checkNetNameExistence(name, Network.class);
-				}
-			catch(FileNotFoundException e) {
-				e.printStackTrace();
-			}
-			if (exists)
-				System.out.println(NOME_GIA_PRESENTE_RETE);
-		}while(exists);
+		name = Utility.readCheckedName(ns, INSERIMENTO_RETE, NOME_GIA_PRESENTE_RETE);
 		Network network = new Network(name);
 		ns.add(network);
 		return network;

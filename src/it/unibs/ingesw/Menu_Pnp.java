@@ -32,36 +32,14 @@ public final class Menu_Pnp {
 		int select = -1;
 		select = Utility.readLimitedInt(0, pn.size()-1);
 		String name;
-		do {
-		System.out.println(MESSAGGI_MENU[1]);
-		name = Utility.readString();
-		if(checkPNpExistence(name, pnp))
-			System.out.println(MESSAGGI_MENU[2]);
-		}while(checkPNpExistence(name, pnp));
-		int i;
-		for(i = 0; i<ns.size(); i++) {
-			if (ns.get(i).getId() == pn.get(select).getFatherNetId())
-				break;
-		}
+		name = Utility.readCheckedName(pnp, MESSAGGI_MENU[1], MESSAGGI_MENU[2]);
 		Priority_network toAdd = new Priority_network(pn.get(select), name);
 		setPriorities(toAdd);
-		if (!checkPNpExistence(toAdd.getName(), pnp))
+		if (!pnpExistence(toAdd, pnp))
 			pnp.add(toAdd);
 		else
 			System.out.println(MESSAGGI_MENU[3]);
 	}	
-	
-	private static boolean checkPNpExistence (String name, ArrayList<Priority_network> pnp) {
-		
-		if(pnp.size()>0) {
-			for (Priority_network pn : pnp) {
-				if(Utility.nameCheck(pn, name)) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}
 		
 	/**
 	 * Setta tutte le priorità delle transizioni presenti in una rete di petri priorizzata
@@ -74,6 +52,41 @@ public final class Menu_Pnp {
 			pt.setPriority(Utility.readLowLimitInt(1));
 		}
 	}
+	
+	/**
+	 * Controlla che una pnp non esista già in un array
+	 * @param toAdd
+	 * @param pnp
+	 * @return true se esiste già, false se manca
+	 */
+	private static boolean pnpExistence(Priority_network toAdd, ArrayList<Priority_network> pnp) {
+		
+		if(pnp.size() == 0) {
+			return false;
+		}
+		for (Priority_network pns : pnp) {
+			if(prioritySingleCheck(pns, toAdd))
+				return true;
+		}
+		return false;
+	}
+	/**
+	 * Controlla che due pnp abbiano padre e/o priorità diverse
+	 * @param pnp
+	 * @param toCheck
+	 * @return true se sono uguali, false se diverse
+	 */
+	private static boolean prioritySingleCheck(Priority_network pnp, Priority_network toCheck) {
+		if (toCheck.getFatherNetId() == pnp.getFatherNetId()){
+			for (int i = 0; i<toCheck.getTransitions().size(); i++) {
+				if(toCheck.getTransitions().get(i).getPriority() != pnp.getTransitions().get(i).getPriority())
+					return false;
+			}
+			return true;
+		}
+		return false;
+	}
+	
 		
 	/**
 	 * Metodo di interazione con il fruitore per simulare una rete di petri priorizzata

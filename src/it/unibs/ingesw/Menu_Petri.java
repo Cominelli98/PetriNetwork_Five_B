@@ -32,12 +32,7 @@ public final class Menu_Petri {
 		int select = -1;
 		select = Utility.readLimitedInt(0, ns.size()-1);
 		String name;
-		do {
-		System.out.println(MESSAGGI_MENU[1]);
-		name = Utility.readString();
-		if(checkPNetExistence(name, pn))
-			System.out.println(MESSAGGI_MENU[2]);
-		}while(checkPNetExistence(name, pn));
+		name = Utility.readCheckedName(pn, MESSAGGI_MENU[1], MESSAGGI_MENU[2]);
 		Petri_network toAdd = new Petri_network(ns.get(select), name);
 		setCosts(toAdd);
 		setTokens(toAdd);
@@ -49,10 +44,10 @@ public final class Menu_Petri {
 	
 	
 	/**
-	 * Controlla se due reti di petri in  ingresso sono uguali
+	 * Controlla che una rete di petri non sia presente in un array
 	 * @param toAdd
 	 * @param pn
-	 * @return boolean
+	 * @return true se la rete è già presente, false se non c'è
 	 */
 	private static boolean petriExistence(Petri_network toAdd, ArrayList<Petri_network> pn) {
 		
@@ -66,6 +61,12 @@ public final class Menu_Petri {
 		return false;
 	}
 	
+	/**
+	 * Controlla che due reti di petri non siano uguali per padre, location/transition + valori
+	 * @param pn
+	 * @param toCheck
+	 * @return true se uguali, false se c'è almeno una differenza
+	 */
 	private static boolean petriSingleCheck(Petri_network pn, Petri_network toCheck) {
 		if (toCheck.getFatherNetId() == pn.getFatherNetId()){
 			for(int i=0; i<toCheck.getLocations().size(); i++) {
@@ -81,20 +82,9 @@ public final class Menu_Petri {
 		}
 		return false;
 	}
-	
-	private static boolean checkPNetExistence (String name, ArrayList<Petri_network> pn) {
-		if(pn.size() > 0) {
-			for (Petri_network pns : pn) {
-				if(Utility.nameCheck(pns, name)) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-	
+
 	/**
-	 * Setta il valore del costo della transizione in ingresso
+	 * Setta il valore dei costi delle transizioni della rete in ingresso
 	 * @param toSet
 	 */
 	private static void setCosts(Petri_network toSet) {
@@ -106,7 +96,7 @@ public final class Menu_Petri {
 	}
 	
 	/**
-	 * Setta il valore dei token di tutte le locations
+	 * Setta il valore dei token di tutte le locations della rete in ingresso
 	 * @param toSet
 	 */
 	private static void setTokens(Petri_network toSet) {
@@ -115,6 +105,8 @@ public final class Menu_Petri {
 			pl.setToken(Utility.readLowLimitInt(0));
 		}
 	}
+	
+	
 	
 	/**
 	 * Metodo di interazione con il fruitore per simulare una rete di petri

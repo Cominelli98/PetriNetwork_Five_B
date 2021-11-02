@@ -67,20 +67,13 @@ public final class Utility {
 	public static void close() {
 		scanner.close();
 	}
-	
-	public static int getMax(ArrayList<Integer> integer) {
-	 int max = 0;
-	 for(Integer n : integer) {
-		 if(n>max) max = n;
-	 }
-	 return max;
-	}
 
 	public static String readCheckedName(ArrayList<? extends IDNameGiver> toCheck, String RICHIESTA, String ERRORE){
 		
 		String name = "";
-		boolean finito = true;
+		boolean finito;
 		do {
+			finito = true;
 			System.out.println(RICHIESTA);
 			name = readString();
 			if(toCheck.size()>0) {
@@ -101,5 +94,15 @@ public final class Utility {
 			return true;
 		return false;
 	}
+	
+	
+	public static int getMax(ArrayList<Integer> integer) {
+	 int max = 0;
+	 for(Integer n : integer) {
+		 if(n>max) max = n;
+	 }
+	 return max;
+	}
+
 	
 }
