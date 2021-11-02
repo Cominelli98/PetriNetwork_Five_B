@@ -9,7 +9,6 @@ public final class Utility {
 	
 	private static Scanner scanner = creaScanner();
 	private final static String ERRORE_INSERIMENTO = "Errore inserimento, per favore inserisci un valore appropriato";
-	private final static String NOME_PRESENTE = "Nome già presente, prego reinserire";
 	
 	private static Scanner creaScanner() {
 		Scanner creato = new Scanner(System.in);
@@ -39,7 +38,7 @@ public final class Utility {
 			i = readInt();
 			if(i>=min && i<= max)
 				finito = true;
-			else System.out.println("valore non compreso tra gli estremi, reinserire:");
+			else System.out.println("Valore non compreso tra gli estremi, reinserire:");
 			
 		}while(!finito);
 		return i;
@@ -53,7 +52,7 @@ public final class Utility {
 			i = readInt();
 			if(i>=min)
 				finito = true;
-			else System.out.println("valore inferiore al minimo, reinserire");
+			else System.out.println("Valore inferiore al minimo, reinserire");
 			
 		}while(!finito);
 		return i;
