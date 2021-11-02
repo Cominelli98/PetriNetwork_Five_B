@@ -153,4 +153,14 @@ public class Network implements GenericNetwork{
 		return netLinks.get(i);
 	}
 
+	@Override
+	public String getLinkOrigin(int i) {
+		return nodeNameFromID(netLinks.get(i).getOrigin()); 
+	}
+
+	@Override
+	public String getLinkDestination(int i) {
+		return nodeNameFromID(netLinks.get(i).getDestination()); 
+	}
+
 }

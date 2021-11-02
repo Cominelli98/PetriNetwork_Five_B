@@ -16,6 +16,7 @@ public class Petri_transition implements PetriNode{
 		this.priority = -1;
 	}
 	
+	@Override
 	public int getPriority() {
 		return priority;
 	}

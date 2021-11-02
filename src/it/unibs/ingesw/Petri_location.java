@@ -45,5 +45,10 @@ public class Petri_location implements PetriNode{
 	public int getId() {
 		return nodeId;
 	}
+
+	@Override
+	public int getPriority() {
+		return -1;
+	}
 	
 }
