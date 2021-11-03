@@ -1,6 +1,8 @@
 package it.unibs.ingesw.tests;
 
 import org.junit.Test;
+
+import static org.junit.Assert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 import it.unibs.ingesw.*;
@@ -8,12 +10,15 @@ import it.unibs.ingesw.*;
 public class TestsProva {
 
 	@Test
-	public void pacipaci() {
+	public void testNetwork() {
+		Network net1 = new Network("Paganel");
+		Network net2 = new Network("Paganela");
 		
-		var asd = 12;
-		var dsa = 12;
-		assertTrue(asd == dsa);
-//		assertFalse(true);
+		
+//		AssertEquals(net1.getName() , net2.getName());
+		assertNotEquals(net1.getName(), net2.getName());
+//		assertEquals(net1.getName(), net2.getName(), "ciao");
+	
 	}
 	
 }
