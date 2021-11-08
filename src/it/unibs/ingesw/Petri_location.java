@@ -50,5 +50,12 @@ public class Petri_location implements PetriNode{
 	public int getPriority() {
 		return -1;
 	}
+
+	@Override
+	public StringBuffer print() {
+		StringBuffer s = new StringBuffer("");
+		s.append(nodeName +"  "+ "token:" + token  + "\n");
+		return s;
+	}
 	
 }

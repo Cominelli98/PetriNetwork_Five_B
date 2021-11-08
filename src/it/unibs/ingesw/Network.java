@@ -2,6 +2,8 @@ package it.unibs.ingesw;
 
 import java.util.ArrayList;
 
+import it.unibs.ingesw.utility.UtilityVisua;
+
 
 public class Network implements GenericNetwork{
 	
@@ -162,5 +164,22 @@ public class Network implements GenericNetwork{
 	public String getLinkDestination(int i) {
 		return nodeNameFromID(netLinks.get(i).getDestination()); 
 	}
+
+	@Override
+	public StringBuffer print() {
+		StringBuffer s = new StringBuffer("");
+		s.append("ELENCO LOCATIONS: \n");
+		s.append(UtilityVisua.nodesPrint(locations));
+		s.append("ELENCO TRANSITIONS: \n");
+		s.append(UtilityVisua.nodesPrint(transitions));
+		s.append("ELENCO LINKS: \n");
+		s.append(UtilityVisua.linksList(this));
+		return s;
+	}
+	
+	
+	
+	
+	
 
 }

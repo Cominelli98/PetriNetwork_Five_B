@@ -47,4 +47,14 @@ public class Petri_transition implements PetriNode{
 	public int getId() {
 		return nodeId;
 	}
+
+	@Override
+	public StringBuffer print() {
+		StringBuffer s = new StringBuffer("");
+		if(priority == -1)
+			s.append(nodeName + "  " + "costo: " + cost + "\n");
+		else
+			s.append(nodeName + "  " + "costo: " + cost + "   priorità:" + priority + "\n");
+		return s;
+	}
 }

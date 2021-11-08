@@ -122,13 +122,13 @@ public final class Menu_configuratore {
 			select = Utility.readLimitedInt(0, SCELTA_VISUALIZZAZIONE.length-4);
 			switch(select) {
 			case 1:	//Collegamento al menu di visualizzazione delle reti
-				 Menu_Visua.netViewer(Menu.getNetworks());
+				 Menu_Visua.gnetViewer(Menu.getNetworks());
 				break;
 			case 2:	//Collegamento al menu di visualizzazione delle reti di petri
-				 Menu_Visua.petriNetViewer(Menu.getPetriNetworks());
+				 Menu_Visua.gnetViewer(Menu.getPetriNetworks());
 				break;
 			case 3:	//Collegamento al menu di visualizzazione delle reti di petri priorizzate
-				 Menu_Visua.pnpViewer(Menu.getPriorityNetworks());
+				 Menu_Visua.gnetViewer(Menu.getPriorityNetworks());
 				break;
 			case 0:	//Indietro
 				break;

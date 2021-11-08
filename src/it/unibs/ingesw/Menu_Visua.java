@@ -3,6 +3,8 @@ package it.unibs.ingesw;
 import java.util.ArrayList;
 
 import it.unibs.ingesw.utility.Utility;
+import it.unibs.ingesw.utility.UtilityVisua;
+import it.unibs.ingesw.utility.UtylityPrint;
 
 public final class Menu_Visua {
 	
@@ -21,7 +23,7 @@ public final class Menu_Visua {
 	
 	/**
 	 * Menu di visualizzazione di una rete
-	 */
+	 
 	public static void netViewer(ArrayList<Network> ns) {
 		if(ns.size() == 0) {
 			System.out.println(NO_RETI);
@@ -62,12 +64,12 @@ public final class Menu_Visua {
 			}
 		}while (select != 0);
 	}
-	
+	*/
 	/**
 	 * Crea un elenco numerato di tutte reti a seconda che sia una rete, PN o PNp
 	 * @param ns
 	 * @return
-	 */
+	
 	public static StringBuffer getNetworksList(ArrayList<Network> ns ){
 		StringBuffer s = new StringBuffer("");
 		int i = 0;
@@ -80,7 +82,7 @@ public final class Menu_Visua {
 	/**
 	 * Menu di visualizzazione di una rete di petri 
 	 * @param pn
-	 */
+
 	public static void petriNetViewer(ArrayList<Petri_network> pn) {
 		if(pn.size() == 0) {
 			System.out.println(NO_RETI_P);
@@ -121,7 +123,7 @@ public final class Menu_Visua {
 	/**
 	 * Menu di visualizzazione di una rete di petri con priorità
 	 * @param pnp
-	 */
+
 	public static void pnpViewer(ArrayList<Priority_network> pnp) {
 		if(pnp.size() == 0) {
 			System.out.println(NO_RETI_PNP);
@@ -168,6 +170,23 @@ public final class Menu_Visua {
 		return f;
 	}
 
+	* :) *
+	TODO
+	* :( *
+	*/
+	public static StringBuffer getNetsList(ArrayList<? extends GenericNetwork> nets) {
+		StringBuffer f = new StringBuffer("");
+		int i = 0; 
+		for (GenericNetwork n : nets) {
+			f.append(i++ + ")" + n.getName() + "\n");
+		}
+		return f;
+	}
+	
+	
+	
+	
+	/*
 	public static void printPetriNet(Petri_network pn) {
 		System.out.println("ELENCO LOCATIONS:");
 		System.out.println(pn.getLocationsList());
@@ -181,7 +200,7 @@ public final class Menu_Visua {
 	 * Crea un elenco numerato di tutte le pnp presenti
 	 * @param pnp
 	 * @return StringBuffer f
-	 */
+	 
 	public static StringBuffer getPnpList(ArrayList<Priority_network> pnp){
 		StringBuffer f = new StringBuffer("");
 		int i = 0;
@@ -190,4 +209,51 @@ public final class Menu_Visua {
 		}
 		return f;
 	}
+	
+	
+	
+	*/
+	public static void gnetViewer(ArrayList<? extends GenericNetwork> ns) {
+		if(ns.size() == 0) {
+			System.out.println(NO_RETI);
+			return;
+		}
+		System.out.println("Quale rete vuoi visualizzare?");
+		System.out.println(getNetsList(ns));
+		int i = Utility.readLimitedInt(0, ns.size());
+		int select = -1;
+		do {
+			for (String s : MENUVISUALIZZA)
+				System.out.println(s);
+			select = Utility.readLimitedInt(0, MENUVISUALIZZA.length-4);
+			
+			switch(select) {
+			case 1:	//Visualizza l'elenco delle locatione di una rete
+				System.out.println("ELENCO LOCATIONS:");
+				System.out.println(stampaArray(ns.get(i).getLocations()));
+				break;
+			case 2:	//Visualizza l'elenco delle transition di una rete
+				System.out.println("ELENCO TRANSITIONS:");
+				System.out.println(stampaArray(ns.get(i).getTransitions()));
+				break;
+			case 3:	//Visualizza l'elenco dei link di una rete
+				System.out.println("ELENCO LINKS:");
+				UtilityVisua.linksList(ns.get(i));
+				break;
+			case 4:	//Visualizza la rete complessiva
+				ns.get(i).print();
+				break;
+			case 0:	//indietro
+				break;
+			}
+		}while (select != 0);
+	}
+	
+	private static StringBuffer stampaArray(ArrayList<? extends Node> locs) {
+		StringBuffer s = new StringBuffer("");
+		for (Node n : locs)
+			s.append(n.print());
+		return s;
+	}
+	
 }

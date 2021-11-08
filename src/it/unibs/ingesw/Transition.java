@@ -27,5 +27,11 @@ public class Transition implements Node {
 	public int getNetID() {
 		return netId;
 	}
+	
+	public StringBuffer print() {
+		StringBuffer s = new StringBuffer("");
+		s.append(nodeName+"\n");
+		return s;
+	}
 
 }
