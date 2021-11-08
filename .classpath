@@ -6,12 +6,12 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/comin/eclipse-workspace/IngeSwB/Lib/junit-jupiter-engine-5.8.1.jar">
+	<classpathentry kind="lib" path="Lib/gson-2.8.7.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/comin/eclipse-workspace/IngeSwB/Lib/gson-2.8.7.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="lib" path="Lib/junit-jupiter-engine-5.8.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
