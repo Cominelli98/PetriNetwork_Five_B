@@ -12,36 +12,23 @@ import it.unibs.ingesw.PetriNode;
 
 public final class UtylityPrint {
 	
-	public static StringBuffer getList(NetworkNode[] nodes) {
-		StringBuffer list = new StringBuffer();
-		for(int i = 0 ; i < nodes.length ; i++)
-			list.append(i+")"+nodes[i].getName()+"\n");
-		return null;
-	}
-	
-	public static StringBuffer getList(PetriNode[] nodes) {
-		StringBuffer list = new StringBuffer();
-		for(int i = 0 ; i < nodes.length ; i++) {
-			list.append(i+")"+stringValue(nodes[i])+stringPriority(nodes[i])+"\n");
-		}
-		return list;
-	}
-	
 	public static StringBuffer getList(GenericNetwork net) {
 		StringBuffer list = new StringBuffer();
 		ArrayList<Link> links = net.getLinks();
 		for(int i = 0 ; i < links.size() ; i++) {
-			list.append(net.getLinkOrigin(i)+" ----> "+net.getLinkDestination(i));
+			list.append(net.getLinkOrigin(i)+" ----> "+net.getLinkDestination(i)+"\n");
 		}
 		return list;
 	}
-	/*CANTIERE
-	public static StringBuffer printNet(GenericNetwork n) {
-		StringBuffer list = new StringBuffer();
-		list.append("LOCATION:"+"\n"+getList(n.getLocations()));
-		return null;
+	
+	public static String printNode(NetworkNode node) {
+		return node.getName()+"\n";
 	}
-	*/
+	
+	public static String printNode(PetriNode node) {
+		return node.getName()+"  "+stringValue(node)+"  "+stringPriority(node)+"\n";
+	}
+	
 	private static String getValueName(PetriNode pn, int variable) {
 		Field f[] = pn.getClass().getDeclaredFields();
 		return f[variable].getName();
