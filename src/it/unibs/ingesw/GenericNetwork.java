@@ -2,7 +2,7 @@ package it.unibs.ingesw;
 
 import java.util.ArrayList;
 
-public interface GenericNetwork extends IDNameGiver{
+public interface GenericNetwork extends IDNameGiver, Printable{
 	
 	public ArrayList<? extends Node> getTransitions();
 	

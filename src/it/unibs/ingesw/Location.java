@@ -28,4 +28,9 @@ public class Location implements Node{
 		return netId;
 	}
 
+	@Override
+	public String print() {
+		return name+"\n";
+	}
+
 }

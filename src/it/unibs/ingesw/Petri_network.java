@@ -2,6 +2,8 @@ package it.unibs.ingesw;
 
 import java.util.ArrayList;
 
+import it.unibs.ingesw.utility.UtilityVisua;
+
 public class Petri_network implements GenericNetwork{
 	protected ArrayList<Petri_location> petriLocations;
 	protected ArrayList<Petri_transition> petriTransitions;
@@ -170,6 +172,17 @@ public class Petri_network implements GenericNetwork{
 	public String getLinkDestination(int i) {
 		// TODO Auto-generated method stub
 		return nodeNameFromID(petriNetLinks.get(i).getDestination());
+	}
+	
+	public StringBuffer print() {
+		StringBuffer s = new StringBuffer("");
+		s.append("ELENCO LOCATIONS: \n");
+		s.append(UtilityVisua.nodesPrint(petriLocations));
+		s.append("ELENCO TRANSITIONS: \n");
+		s.append(UtilityVisua.nodesPrint(petriTransitions));
+		s.append("ELENCO LINKS: \n");
+		s.append(UtilityVisua.linksList(this));
+		return s;
 	}
 
 }

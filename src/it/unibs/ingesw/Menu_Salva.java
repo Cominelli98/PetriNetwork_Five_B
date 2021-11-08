@@ -20,6 +20,33 @@ public final class Menu_Salva {
 	private static final String RICHIESTA_SALVATAGGIO = "Quale rete vuoi salvare?";
 	private static final String NO_RETI = "non ci sono reti da salvare";
 	
+	
+	
+	___________________________________________________________________________________________________________________________________________________
+	public static void gsaveOption(ArrayList<? extends GenericNetwork> pnp) {
+		if(pnp.size() == 0) {
+			System.out.println(NO_RETI);
+			return;
+		}
+		int select = -1;
+		for (String s : MENUSALVA)
+			System.out.println(s);
+		select = Utility.readLimitedInt(0, MENUSALVA.length-4);
+		switch (select) {
+		case 0: //Indietro
+			break;
+		case 1:	//Salva su file una rete di petri priorizzata
+			System.out.println(RICHIESTA_SALVATAGGIO);
+			System.out.println(STAMPONA DELLE RETI DELL ARRAY GENERICO);
+			int i = Utility.readLimitedInt(0, pnp.size());
+			saveNetOnFile(pnp.get(i));
+			break;
+		case 2:	//salva su file tutte le reti di petri priorizzate
+			for (GenericNetwork n : pnp)
+				saveNetOnFile(n);
+			break;
+		}
+	}
 	/**
 	 * Metodo dedicato al salvataggio delle reti su file, permette di salvare una rete unica o tutte quelle create.
 	 */
@@ -105,6 +132,7 @@ public final class Menu_Salva {
 			break;
 		}
 	}
+	
 	
 	/**
 	 * Metodo che richiama dalla classe statica WriteN il salvataggio su file delle reti create
