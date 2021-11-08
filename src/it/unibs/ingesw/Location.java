@@ -29,8 +29,10 @@ public class Location implements Node{
 	}
 
 	@Override
-	public String print() {
-		return name+"\n";
+	public StringBuffer print() {
+		StringBuffer s = new StringBuffer("");
+		s.append(name+"\n");
+		return s;
 	}
 
 }

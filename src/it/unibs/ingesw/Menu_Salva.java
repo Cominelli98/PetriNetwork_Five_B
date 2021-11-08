@@ -21,7 +21,7 @@ public final class Menu_Salva {
 	private static final String NO_RETI = "non ci sono reti da salvare";
 	
 	
-	
+	/*
 	___________________________________________________________________________________________________________________________________________________
 	public static void gsaveOption(ArrayList<? extends GenericNetwork> pnp) {
 		if(pnp.size() == 0) {
@@ -37,7 +37,7 @@ public final class Menu_Salva {
 			break;
 		case 1:	//Salva su file una rete di petri priorizzata
 			System.out.println(RICHIESTA_SALVATAGGIO);
-			System.out.println(STAMPONA DELLE RETI DELL ARRAY GENERICO);
+			System.out.println(Menu_Visua.getNetsList(nets));
 			int i = Utility.readLimitedInt(0, pnp.size());
 			saveNetOnFile(pnp.get(i));
 			break;
@@ -64,7 +64,7 @@ public final class Menu_Salva {
 			break;
 		case 1:
 			System.out.println(RICHIESTA_SALVATAGGIO);
-			System.out.println(Menu_Visua.getNetworksList(ns));
+			System.out.println(Menu_Visua.getNetsList(ns));
 			int i = Utility.readLimitedInt(0, ns.size());
 			saveNetOnFile(ns.get(i));
 			break;
@@ -93,7 +93,7 @@ public final class Menu_Salva {
 			break;
 		case 1:	//Salva una rete di petri
 			System.out.println(RICHIESTA_SALVATAGGIO);
-			System.out.println(Menu_Visua.getPNetworksList(pn));
+			System.out.println(Menu_Visua.getNetsList(pn));
 			int i = Utility.readLimitedInt(0, pn.size());
 			saveNetOnFile(pn.get(i));
 			break;
@@ -122,7 +122,7 @@ public final class Menu_Salva {
 			break;
 		case 1:	//Salva su file una rete di petri priorizzata
 			System.out.println(RICHIESTA_SALVATAGGIO);
-			System.out.println(Menu_Visua.getPnpList(pnp));
+			System.out.println(Menu_Visua.getNetsList(pnp));
 			int i = Utility.readLimitedInt(0, pnp.size());
 			saveNetOnFile(pnp.get(i));
 			break;

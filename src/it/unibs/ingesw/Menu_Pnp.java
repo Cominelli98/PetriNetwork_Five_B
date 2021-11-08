@@ -28,7 +28,7 @@ public final class Menu_Pnp {
 			return;
 		}
 		System.out.println(MESSAGGI_MENU[0]);
-		System.out.println(Menu_Visua.getPNetworksList(pn));
+		System.out.println(Menu_Visua.getNetsList(pn));
 		int select = -1;
 		select = Utility.readLimitedInt(0, pn.size()-1);
 		String name;
@@ -109,7 +109,7 @@ public final class Menu_Pnp {
 		rete = (Priority_network) ReadN.jsonToObject(s.get(scelta), Priority_network.class);
 		daSimulare = new Simulatore(rete);
 		System.out.println("STATO DI PARTENZA:");
-		Menu_Visua.printPetriNet(rete);
+		System.out.println(rete.print());
 		do {
 			System.out.println("MARCATURA SUCCESSIVA:");
 			daSimulare.nextStep();

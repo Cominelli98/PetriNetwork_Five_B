@@ -28,7 +28,7 @@ public class Simulatore {
 			stampAttivabili();
 			System.out.println("C'è un'unica transizione attivabile, prossimo step:");
 			modificaToken(transizioniAttivabili.get(0));
-			Menu_Visua.printPetriNet(rete);
+			System.out.println(rete.print());
 			}
 		else {
 			//stampa a video, richiede la scelta, esegue
@@ -36,7 +36,7 @@ public class Simulatore {
 			stampAttivabili();
 			int scelta = Utility.readLimitedInt(0, transizioniAttivabili.size() -1);
 			modificaToken(transizioniAttivabili.get(scelta));
-			Menu_Visua.printPetriNet(rete);
+			System.out.println(rete.print());
 		}
 	}
 	

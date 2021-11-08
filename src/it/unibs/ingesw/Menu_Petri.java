@@ -28,7 +28,7 @@ public final class Menu_Petri {
 			return;
 		}
 		System.out.println(MESSAGGI_MENU[0]);
-		System.out.println(Menu_Visua.getNetworksList(ns));
+		System.out.println(Menu_Visua.getNetsList(ns));
 		int select = -1;
 		select = Utility.readLimitedInt(0, ns.size()-1);
 		String name;
@@ -128,7 +128,7 @@ public final class Menu_Petri {
 		rete = (Petri_network) ReadN.jsonToObject(s.get(scelta), Petri_network.class);
 		daSimulare = new Simulatore(rete);
 		System.out.println("STATO DI PARTENZA:");
-		Menu_Visua.printPetriNet(rete);
+		System.out.println(rete.print());;
 		do {
 			System.out.println("MARCATURA SUCCESSIVA:");
 			daSimulare.nextStep();
