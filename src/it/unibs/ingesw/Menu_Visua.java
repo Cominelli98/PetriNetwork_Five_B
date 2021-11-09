@@ -241,7 +241,7 @@ public final class Menu_Visua {
 				UtilityVisua.linksList(ns.get(i));
 				break;
 			case 4:	//Visualizza la rete complessiva
-				ns.get(i).print();
+				System.out.println(ns.get(i).print());
 				break;
 			case 0:	//indietro
 				break;

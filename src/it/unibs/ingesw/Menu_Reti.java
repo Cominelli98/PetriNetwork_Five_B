@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import it.unibs.ingesw.ioGson.ReadN;
 import it.unibs.ingesw.utility.Utility;
+import it.unibs.ingesw.utility.UtilityVisua;
 
 public final class Menu_Reti {
 	
@@ -50,7 +51,7 @@ public final class Menu_Reti {
 				case 1:
 					createLocation(network);
 					System.out.println(ASKLINK);
-					System.out.print(network.getTransitionsList());
+					System.out.print(UtilityVisua.numberedNodesPrint(network.getTransitions()));
 					num = Utility.readLimitedInt(0, network.getTransitions().size()-1);
 					createLink(network.getTransition(num), network.getLastLocation(), network);
 					num = -1;
@@ -58,7 +59,7 @@ public final class Menu_Reti {
 				case 2:	//Creazione di una transizione
 					createTransition(network);
 					System.out.println(ASKLINK);
-					System.out.print(network.getLocationsList());
+					System.out.print(UtilityVisua.numberedNodesPrint(network.getLocations()));
 					num = Utility.readLimitedInt(0, network.getLocations().size()-1);
 					createLink(network.getLastTransition(), network.getLocation(num), network);
 					num = -1;
@@ -67,11 +68,11 @@ public final class Menu_Reti {
 					int loc;
 					int trans;
 					System.out.println("ELENCO LOCATIONS");
-					System.out.print(network.getLocationsList());
+					System.out.print(UtilityVisua.numberedNodesPrint(network.getLocations()));
 					loc = Utility.readLimitedInt(0, network.getLocations().size()-1);
 					System.out.println(ASKLINK);
 					System.out.println("ELENCO TRANSITIONS");
-					System.out.print(network.getTransitionsList());
+					System.out.print(UtilityVisua.numberedNodesPrint(network.getTransitions()));
 					trans = Utility.readLimitedInt(0, network.getTransitions().size()-1);
 					createLink(network.getTransition(trans), network.getLocation(loc), network);
 					break;
@@ -133,10 +134,12 @@ public final class Menu_Reti {
 	}
 	
 	/**
-	 * Metodo check sull'esistenza di un link
+	 * Metodo check sull'esistenza di un link in una rete
 	 * @param t transition
 	 * @param l location
-	 * @return boolean
+	 * @param n network
+	 * @param orientation int
+	 * @return true se il link esiste già
 	 */
 	private static boolean checkLinkExistence(Location l, Transition t, Network n, int orientation) {
 		

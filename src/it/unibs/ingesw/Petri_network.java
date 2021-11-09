@@ -40,42 +40,6 @@ public class Petri_network implements GenericNetwork{
 		return name;
 	}
 	
-	/**
-	 * Produce un elenco numerato delle transition di una rete
-	 * @return StringBuffer s
-	 */
-	public StringBuffer getTransitionsList() {
-		StringBuffer s = new StringBuffer("");
-		for (int i = 0; i<petriTransitions.size(); i++) {
-			s.append(i + ")" + petriTransitions.get(i).getName() + " costo: " + petriTransitions.get(i).getValue() + "\n");
-		}
-		return s;
-	}
-	
-	/**
-	 * Produce un elenco numerato di location di una rete
-	 * @return StringBuffer s
-	 */
-	public StringBuffer getLocationsList() {
-		StringBuffer s = new StringBuffer("");
-		for (int i = 0; i<petriLocations.size(); i++) {
-			s.append(i + ")" + petriLocations.get(i).getName() + " marcatura: " + petriLocations.get(i).getValue() + "\n");
-		}
-		return s;
-	}
-	
-	/**
-	 * Produce un elenco numerato dei link di una rete
-	 * @return StringBuffer s
-	 */
-	public StringBuffer getLinksList() {
-		StringBuffer s = new StringBuffer("");
-		for (int i = 0; i < petriNetLinks.size(); i++) {
-			s.append(i + ")" + nodeNameFromID(petriNetLinks.get(i).getOrigin()) + "---->" + nodeNameFromID(petriNetLinks.get(i).getDestination())+ "\n");
-		}
-		return s;
-	}
-	
 	@Override
 	public ArrayList<Petri_location> getLocations(){
 		return petriLocations;

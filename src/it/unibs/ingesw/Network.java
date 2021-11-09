@@ -76,42 +76,6 @@ public class Network implements GenericNetwork{
 		this.netId = netId;
 	}
 	
-	/**
-	 * Produce in uscita la lista delle transizioni con associato un numero
-	 * @return StringBuffer s
-	 */
-	public StringBuffer getTransitionsList() {
-		StringBuffer s = new StringBuffer("");
-		for (int i = 0; i<transitions.size(); i++) {
-			s.append(i + ")" + transitions.get(i).getName() + "\n");
-		}
-		return s;
-	}
-	
-	/**
-	 * Produce in uscita la lista dei posti con associato un numero 
-	 * @return StringBuffer s
-	 */
-	public StringBuffer getLocationsList() {
-		StringBuffer s = new StringBuffer("");
-		for (int i = 0; i<locations.size(); i++) {
-			s.append(i + ")" + locations.get(i).getName() + "\n");
-		}
-		return s;
-	}
-	
-	/**
-	 * Produce in uscita la lista dei link
-	 * @return Stringbuffer s
-	 */
-	public StringBuffer getLinksList() {
-		StringBuffer s = new StringBuffer("");
-		for (int i = 0; i < netLinks.size(); i++) {
-			s.append(i + ")" + nodeNameFromID(netLinks.get(i).getOrigin()) + "---->" + nodeNameFromID(netLinks.get(i).getDestination())+ "\n");
-		}
-		return s;
-	}
-	
 	public Transition getLastTransition() {
 		return transitions.get(transitions.size()-1);
 	}

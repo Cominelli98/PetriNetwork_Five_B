@@ -22,4 +22,12 @@ public class UtilityVisua {
 			s.append(n.print());
 		return s;
 	}
+	
+	public static StringBuffer numberedNodesPrint(ArrayList<? extends Node> nodes) {
+		StringBuffer s = new StringBuffer("");
+		int i=0;
+		for (Node n : nodes)
+			s.append(i++ + ") " + n.print());
+		return s;
+	}
 }
