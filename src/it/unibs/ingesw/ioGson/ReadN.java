@@ -14,9 +14,11 @@ import com.google.gson.Gson;
 public final class ReadN {
 	
 	private static final int ID_INIZIALE = -1;
-	private static final String FILE_NET = "n_data.txt";//file in cui vengono salvate le reti base
-	private static final String FILE_PNET = "pn_data.txt";//file in cui vengono salvate le reti di petri
-	private static final String FILE_PNP = "pnp_data.txt";//file in cui vengono salvare le reti pnp
+	private static final String FILES[] = {"n_data.txt",
+											"pn_data.txt",
+											"pnp_data.txt"};
+	private static final Class CLASSES[] = {Network.class, Petri_network.class, Priority_network.class};
+
 
 	/**
 	 * prende in ingresso una stringa e la converte in un oggetto della classe c
@@ -34,15 +36,13 @@ public final class ReadN {
 		try {
 			reader = new BufferedReader(new FileReader(source));
 			String toLoad = reader.readLine();
-			Gson gson = new Gson();
-			return gson.fromJson(toLoad,c);
+			return FromJson.convert(toLoad, c);
 		} catch (FileNotFoundException e) {
 			throw e;
 		}
 		catch (IOException e) {
 			throw e;
 		}
-		
 	}
 	
 	/**
@@ -53,16 +53,7 @@ public final class ReadN {
 	 * @throws IllegalArgumentException: classe non valida
 	 */
 	public static ArrayList<String> readFile(Class c)throws FileNotFoundException, IllegalArgumentException {	//metodo di selelzione file tipo writeN
-		String data;
-		if (c == Network.class) 
-			data = FILE_NET;
-		else if (c == Petri_network.class)
-			data = FILE_PNET;
-		else if (c == Priority_network.class)
-			data = FILE_PNP;
-		else 
-			throw new IllegalArgumentException("tipo non valido");
-		
+		String data = fileSelection(c);
 		String line;
 		ArrayList<String> lines = new ArrayList<>();
 		try (BufferedReader reader = new BufferedReader(new FileReader(data))){
@@ -77,6 +68,18 @@ public final class ReadN {
 		return lines;
 	}
 	
+	/**
+	 * metodo per la selezione del file corretto per il salvataggioi
+	 * @param c classe del file da salvare
+	 * @return indirizzo del file in cui il file va salvato
+	 */
+	private static String fileSelection(Class c) {
+		for(int i = 0; i < FILES.length ; i++) {
+			if (c == CLASSES[i]) 
+				return FILES[i];
+			}
+		throw new IllegalArgumentException("tipo non valido per lettura file");
+	}
 	
 	/**
 	 * legge e retituisce tutti gli id delle reti salvate sul file
@@ -163,7 +166,4 @@ public final class ReadN {
 		}
 		return false;
 	}
-	
-	//------------------------------------------------------------------------------------------
-	
 }

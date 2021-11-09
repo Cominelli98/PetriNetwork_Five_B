@@ -33,7 +33,11 @@ public final class WriteN {
 		boolean exist = file.exists();
 		try (FileWriter f = new FileWriter(data, exist)){
 			f.append(gson.toJson(net, net.getClass())+"\n");
-		} catch (IOException e) {
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+			System.out.println("tipo non valido per lettura file");
+		}
+		catch (IOException e) {
 			e.printStackTrace();
 			System.out.println(SAVE_ERROR);
 		}
@@ -49,7 +53,7 @@ public final class WriteN {
 			if (c == CLASSES[i]) 
 				return FILES[i];
 			}
-		throw new IllegalArgumentException("tipo non valido per lettura file");
+		throw new IllegalArgumentException();
 	}
 	
 	/**
