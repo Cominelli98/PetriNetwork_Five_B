@@ -10,7 +10,7 @@ import it.unibs.ingesw.Node;
 import it.unibs.ingesw.PetriNode;
 
 
-public final class UtylityPrint {
+public final class UtilityPrint {
 	
 	public static StringBuffer getList(GenericNetwork net) {
 		StringBuffer list = new StringBuffer();
