@@ -25,6 +25,7 @@ public final class Utility {
 			try {
 				i = scanner.nextInt();
 				finito = true;
+				var throwable = scanner.nextLine();
 			}catch (InputMismatchException e) {
 				System.out.println(ERRORE_INSERIMENTO);
 				var throwable = scanner.nextLine();
@@ -66,7 +67,7 @@ public final class Utility {
 	}
 	
 	public static String readString() {
-		String name = scanner.next();
+		String name = scanner.nextLine();
 		return name;
 	}
 	
