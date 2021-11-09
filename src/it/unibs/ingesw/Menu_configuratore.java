@@ -101,10 +101,10 @@ public final class Menu_configuratore {
 				Menu_Salva.saveOption(Menu.getNetworks());
 				break;
 			case 2:	//Collegamento al menu di salvataggio delle reti di petri
-				Menu_Salva.pSaveOption(Menu.getPetriNetworks());
+				Menu_Salva.saveOption(Menu.getPetriNetworks());
 				break;
 			case 3:	//Collegamento al menu di salvataggio delle reti di petri priorizzate
-				Menu_Salva.pnpSaveOption(Menu.getPriorityNetworks());
+				Menu_Salva.saveOption(Menu.getPriorityNetworks());
 				break;
 			case 0:	//Indietro
 				break;

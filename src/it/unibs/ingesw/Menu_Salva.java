@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import it.unibs.ingesw.ioGson.ReadN;
 import it.unibs.ingesw.ioGson.WriteN;
 import it.unibs.ingesw.utility.Utility;
+import it.unibs.ingesw.utility.UtilityRead;
 
 public final class Menu_Salva {
 
@@ -21,10 +22,9 @@ public final class Menu_Salva {
 	private static final String NO_RETI = "non ci sono reti da salvare";
 	
 	
-	/*
-	___________________________________________________________________________________________________________________________________________________
-	public static void gsaveOption(ArrayList<? extends GenericNetwork> pnp) {
-		if(pnp.size() == 0) {
+	
+	public static void saveOption(ArrayList<? extends GenericNetwork> net) {
+		if(net.size() == 0) {
 			System.out.println(NO_RETI);
 			return;
 		}
@@ -35,110 +35,24 @@ public final class Menu_Salva {
 		switch (select) {
 		case 0: //Indietro
 			break;
-		case 1:	//Salva su file una rete di petri priorizzata
+		case 1:	//Salva su file una rete 
 			System.out.println(RICHIESTA_SALVATAGGIO);
-			System.out.println(Menu_Visua.getNetsList(nets));
-			int i = Utility.readLimitedInt(0, pnp.size());
-			saveNetOnFile(pnp.get(i));
+			System.out.println(Menu_Visua.getNetsList(net));
+			int i = Utility.readLimitedInt(0, net.size());
+			saveNetOnFile(net.get(i));
 			break;
-		case 2:	//salva su file tutte le reti di petri priorizzate
-			for (GenericNetwork n : pnp)
+		case 2:	//salva su file tutte le reti 
+			for (GenericNetwork n : net)
 				saveNetOnFile(n);
 			break;
 		}
 	}
-	/**
-	 * Metodo dedicato al salvataggio delle reti su file, permette di salvare una rete unica o tutte quelle create.
-	 */
-	public static void saveOption(ArrayList<Network> ns) {
-		if(ns.size() == 0) {
-			System.out.println(NO_RETI);
-			return;
-		}
-		int select = -1;
-		for (String s : MENUSALVA)
-			System.out.println(s);
-		select = Utility.readLimitedInt(0, MENUSALVA.length-4);
-		switch (select) {
-		case 0:
-			break;
-		case 1:
-			System.out.println(RICHIESTA_SALVATAGGIO);
-			System.out.println(Menu_Visua.getNetsList(ns));
-			int i = Utility.readLimitedInt(0, ns.size());
-			saveNetOnFile(ns.get(i));
-			break;
-		case 2:
-			for (Network n : ns)
-				saveNetOnFile(n);
-			break;
-		}
-	}
-	
-	/**
-	 * Menu di salvataggio reti di petri
-	 * @param pn
-	 */
-	public static void pSaveOption(ArrayList<Petri_network> pn) {
-		if(pn.size() == 0) {
-			System.out.println(NO_RETI);
-			return;
-		}
-		int select = -1;
-		for (String s : MENUSALVA)
-			System.out.println(s);
-		select = Utility.readLimitedInt(0, MENUSALVA.length-4);
-		switch (select) {
-		case 0: //Indietro
-			break;
-		case 1:	//Salva una rete di petri
-			System.out.println(RICHIESTA_SALVATAGGIO);
-			System.out.println(Menu_Visua.getNetsList(pn));
-			int i = Utility.readLimitedInt(0, pn.size());
-			saveNetOnFile(pn.get(i));
-			break;
-		case 2: // salva tutte le reti di petri 
-			for (Petri_network n : pn)
-				saveNetOnFile(n);
-			break;
-		}
-	}
-	
-	/**
-	 * Menu di salvataggio reti di petri priorizzate
-	 * @param pnp
-	 */
-	public static void pnpSaveOption(ArrayList<Priority_network> pnp) {
-		if(pnp.size() == 0) {
-			System.out.println(NO_RETI);
-			return;
-		}
-		int select = -1;
-		for (String s : MENUSALVA)
-			System.out.println(s);
-		select = Utility.readLimitedInt(0, MENUSALVA.length-4);
-		switch (select) {
-		case 0: //Indietro
-			break;
-		case 1:	//Salva su file una rete di petri priorizzata
-			System.out.println(RICHIESTA_SALVATAGGIO);
-			System.out.println(Menu_Visua.getNetsList(pnp));
-			int i = Utility.readLimitedInt(0, pnp.size());
-			saveNetOnFile(pnp.get(i));
-			break;
-		case 2:	//salva su file tutte le reti di petri priorizzate
-			for (Priority_network n : pnp)
-				saveNetOnFile(n);
-			break;
-		}
-	}
-	
 	
 	/**
 	 * Metodo che richiama dalla classe statica WriteN il salvataggio su file delle reti create
 	 */
 	private static void saveNetOnFile(IDNameGiver n){
-		if (!ReadN.checkIdExistence(n.getId(), n.getClass()))
+		if (!UtilityRead.checkIdExistence(n.getId(), n.getClass()))
 			WriteN.save(n);
 		System.out.println(SALVATAGGIO + " rete " + n.getName());
 	}

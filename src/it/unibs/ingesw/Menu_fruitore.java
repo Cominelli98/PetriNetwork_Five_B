@@ -12,7 +12,7 @@ public final class Menu_fruitore {
 			"0:Indietro",
 			"___________________________"};
 	
-	public static void menuFriutore(){
+	public static void menuFruitore(){
 		int select = -1;
 		do {
 			printMenu(MENU_FRUITORE);

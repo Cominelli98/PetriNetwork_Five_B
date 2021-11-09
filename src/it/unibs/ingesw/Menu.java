@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import it.unibs.ingesw.ioGson.ReadN;
 import it.unibs.ingesw.ioGson.WriteN;
 import it.unibs.ingesw.utility.Utility;
+import it.unibs.ingesw.utility.UtilityRead;
 
 
 public final class Menu {
@@ -34,9 +35,9 @@ public final class Menu {
 		petriNetworks = new ArrayList<>();
 		priorityNetworks = new ArrayList<>();
 		WriteN.fileCreation();
-		Network.network_id = Utility.getMax(ReadN.getNetIDsFromFile(Network.class));
-		Petri_network.petriNetworkId = Utility.getMax(ReadN.getNetIDsFromFile(Petri_network.class));//maxPetriId();
-		Priority_network.priorityNetID = Utility.getMax(ReadN.getNetIDsFromFile(Priority_network.class));
+		Network.network_id = Utility.getMax(UtilityRead.getNetIDsFromFile(Network.class));
+		Petri_network.petriNetworkId = Utility.getMax(UtilityRead.getNetIDsFromFile(Petri_network.class));//maxPetriId();
+		Priority_network.priorityNetID = Utility.getMax(UtilityRead.getNetIDsFromFile(Priority_network.class));
 	}
 	
 	/**
@@ -56,7 +57,7 @@ public final class Menu {
 					Menu_configuratore.configuratore();
 					break;
 				case 2:	//Collegamento con il menù fruitore
-					Menu_fruitore.menuFriutore();
+					Menu_fruitore.menuFruitore();
 					break;
 				case 0:	//Uscita dal programma
 					Utility.close();

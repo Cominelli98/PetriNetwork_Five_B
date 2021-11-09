@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import com.google.gson.Gson;
 
 import it.unibs.ingesw.IDNameGiver;
+import it.unibs.ingesw.ioGson.FromJson;
 import it.unibs.ingesw.ioGson.ReadN;
 
 public class UtilityRead {
@@ -20,12 +21,12 @@ public class UtilityRead {
 		ArrayList<Integer> IDs = new ArrayList<>();
 		try {
 			ArrayList<String> nets = ReadN.readFile(c);
-			Gson gson = new Gson();
 			for(String s : nets) {
-				IDNameGiver net = (IDNameGiver) gson.fromJson(s, c);
+				IDNameGiver net = (IDNameGiver) FromJson.convert(s, c);
 				IDs.add(net.getId());
 			}
 		} catch (FileNotFoundException e) {
+			
 		}
 		return IDs;
 	}
@@ -54,7 +55,7 @@ public class UtilityRead {
 			ArrayList<String> nets = ReadN.readFile(c);
 			int i = 0;
 			for(String s : nets) {
-				IDNameGiver net = (IDNameGiver) ReadN.jsonToObject(s,c);
+				IDNameGiver net = (IDNameGiver) FromJson.convert(s, c);
 				names.append(i+")"+net.getName()+"\n");
 				i++;
 			}
