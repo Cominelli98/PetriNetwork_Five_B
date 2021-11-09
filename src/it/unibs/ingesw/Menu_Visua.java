@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import it.unibs.ingesw.utility.Utility;
 import it.unibs.ingesw.utility.UtilityVisua;
-import it.unibs.ingesw.utility.UtylityPrint;
+import it.unibs.ingesw.utility.UtilityPrint;
 
 public final class Menu_Visua {
 	
