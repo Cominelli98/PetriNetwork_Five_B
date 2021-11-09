@@ -2,11 +2,19 @@ package it.unibs.ingesw.tests;
 
 import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.*;
+
 import it.unibs.ingesw.*;
 import it.unibs.ingesw.utility.Utility;
 
 public class TestUtility {
 
+	@Before
+	public void setUp() {
+		
+	}
+	
 	@Test
 	public void testReadLimitedInt() {
 		
