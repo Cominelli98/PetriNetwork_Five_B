@@ -219,7 +219,7 @@ public final class Menu_configuratore {
 	 * @return boolean
 	 */
 	private static boolean checkLoadedValidity(Network n) {
-		if(n.getLocations() == null || n.getTransitions() == null || n.getNetLinks() == null)
+		if(n.getLocations() == null || n.getTransitions() == null || n.getLinks() == null)
 			return false;
 		if(checkExistence(n.getId(), Menu.getNetworks())) {
 			System.out.println(GIA_PRESENTE);
@@ -284,7 +284,7 @@ public final class Menu_configuratore {
 	
 	private static boolean checkFather(Priority_network pnp) {
 		for(Petri_network pn : Menu.getPetriNetworks()) {
-			if(pn.getId() == pnp.getPriorityNetID())
+			if(pn.getId() == pnp.getId())
 				return true;
 		}
 		return false;

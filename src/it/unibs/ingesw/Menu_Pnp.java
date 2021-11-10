@@ -80,7 +80,7 @@ public final class Menu_Pnp {
 	private static boolean prioritySingleCheck(Priority_network pnp, Priority_network toCheck) {
 		if (toCheck.getFatherNetId() == pnp.getFatherNetId()){
 			for (int i = 0; i<toCheck.getTransitions().size(); i++) {
-				if(toCheck.getTransitions().get(i).getPriority() != pnp.getTransitions().get(i).getPriority())
+				if(toCheck.getTransitionPriority(i) != pnp.getTransitionPriority(i))
 					return false;
 			}
 			return true;

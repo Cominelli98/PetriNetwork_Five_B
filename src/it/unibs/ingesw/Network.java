@@ -44,10 +44,6 @@ public class Network implements GenericNetwork{
 		return this.locations.get(i);
 	}
 
-	public void setLocations(ArrayList<Location> locations) {
-		this.locations = locations;
-	}
-
 	public ArrayList<Transition> getTransitions() {
 		return transitions;
 	}
@@ -56,24 +52,8 @@ public class Network implements GenericNetwork{
 		return this.transitions.get(i);
 	}
 
-	public void setTransitions(ArrayList<Transition> transitions) {
-		this.transitions = transitions;
-	}
-
-	public ArrayList<Link> getNetLinks() {
-		return netLinks;
-	}
-
-	public void setNetLinks(ArrayList<Link> netLinks) {
-		this.netLinks = netLinks;
-	}
-
 	public int getId() {
 		return netId;
-	}
-
-	public void setNetId(int netId) {
-		this.netId = netId;
 	}
 	
 	public Transition getLastTransition() {
@@ -87,9 +67,6 @@ public class Network implements GenericNetwork{
 	@Override
 	public String getName() {
 		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
 	}
 	
 	/**

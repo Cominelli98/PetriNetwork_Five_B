@@ -17,7 +17,7 @@ public class Petri_network implements GenericNetwork{
 		this.petriNetId = ++petriNetworkId;
 		petriLocations = Converter.toPetriLocations(n.getLocations(), petriNetId);
 		petriTransitions = Converter.toPetriTransitions(n.getTransitions(), petriNetId);
-		petriNetLinks = Converter.toPetriLinks(n.getNetLinks(), petriNetId);
+		petriNetLinks = Converter.toPetriLinks(n.getLinks(), petriNetId);
 		this.fatherNetId = n.getId();
 		this.name = name;
 	}
@@ -129,6 +129,10 @@ public class Petri_network implements GenericNetwork{
 	
 	public int getLocationValue(int i) {
 		return petriLocations.get(i).getValue();
+	}
+	
+	public int getTransitionValue(int i) {
+		return petriTransitions.get(i).getValue();
 	}
 	
 	public int getLocationID(int i) {

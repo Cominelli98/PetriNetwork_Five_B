@@ -71,12 +71,12 @@ public final class Menu_Petri {
 	private static boolean petriSingleCheck(Petri_network pn, Petri_network toCheck) {
 		if (toCheck.getFatherNetId() == pn.getFatherNetId()){
 			for(int i=0; i<toCheck.getLocations().size(); i++) {
-				if(toCheck.getLocations().get(i).getValue() != pn.getLocations().get(i).getValue())
+				if(toCheck.getLocation(i) != pn.getLocation(i))
 					return false;
 			}
 			
 			for (int j = 0; j<toCheck.getTransitions().size(); j++) {
-				if(toCheck.getTransitions().get(j).getValue() != pn.getTransitions().get(j).getValue())
+				if(toCheck.getTransitionValue(j) != pn.getTransitionValue(j))
 					return false;
 			}
 			return true;
@@ -92,7 +92,6 @@ public final class Menu_Petri {
 		for (Petri_transition pt : toSet.getTransitions()) {
 			System.out.println("Inserisci il costo della transizione "+pt.getName() + " (1 per default)");
 			pt.setCost(Utility.readLowLimitInt(1));
-	
 		}
 	}
 	
