@@ -223,8 +223,7 @@ public final class Menu_Visua {
 		int i = Utility.readLimitedInt(0, ns.size());
 		int select = -1;
 		do {
-			for (String s : MENUVISUALIZZA)
-				System.out.println(s);
+			System.out.println(UtilityVisua.printMenu(MENUVISUALIZZA));
 			select = Utility.readLimitedInt(0, MENUVISUALIZZA.length-4);
 			
 			switch(select) {

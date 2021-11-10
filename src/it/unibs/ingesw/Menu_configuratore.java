@@ -2,9 +2,11 @@ package it.unibs.ingesw;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import it.unibs.ingesw.ioGson.ReadN;
 import it.unibs.ingesw.utility.Utility;
+import it.unibs.ingesw.utility.UtilityVisua;
 
 public final class Menu_configuratore {
 	
@@ -61,7 +63,7 @@ public final class Menu_configuratore {
 	public static void configuratore() {
 		int select = -1;
 		do {
-			printMenu(MENU_CONFIGURATORE);
+			System.out.println(UtilityVisua.printMenu(MENU_CONFIGURATORE));
 			select = Utility.readLimitedInt(0, MENU_CONFIGURATORE.length-4);
 			switch(select) {
 			case 1:	//Crea una nuova rete
@@ -94,7 +96,7 @@ public final class Menu_configuratore {
 	private static void saveOption() {
 		int select = -1;
 		do {
-			printMenu(SCELTA_SALVATAGGIO);
+			System.out.println(UtilityVisua.printMenu(SCELTA_SALVATAGGIO));
 			select = Utility.readLimitedInt(0, SCELTA_SALVATAGGIO.length-4);
 			switch(select) {
 			case 1:	//Collegamento al menu di salvataggio delle reti
@@ -118,7 +120,7 @@ public final class Menu_configuratore {
 	private static void visualizationOption() {
 		int select = -1;
 		do {
-			printMenu(SCELTA_VISUALIZZAZIONE);
+			System.out.println(UtilityVisua.printMenu(SCELTA_VISUALIZZAZIONE));
 			select = Utility.readLimitedInt(0, SCELTA_VISUALIZZAZIONE.length-4);
 			switch(select) {
 			case 1:	//Collegamento al menu di visualizzazione delle reti
@@ -143,7 +145,7 @@ public final class Menu_configuratore {
 	private static void loadOption() {
 		int select = -1;
 		do {
-			printMenu(SCELTA_CARICA_DA_FILE);
+			System.out.println(UtilityVisua.printMenu(SCELTA_CARICA_DA_FILE));
 			select = Utility.readLimitedInt(0, SCELTA_VISUALIZZAZIONE.length-4);
 			try {
 				switch(select) {
@@ -211,11 +213,6 @@ public final class Menu_configuratore {
 		}
 	}
 
-	public static void printMenu(String [] toPrint) {
-		for(String s :toPrint)
-			System.out.println(s);
-	}
-	
 	/**
 	 * Controlla se la network in ingresso dal file è valida
 	 * @param n
@@ -224,7 +221,7 @@ public final class Menu_configuratore {
 	private static boolean checkLoadedValidity(Network n) {
 		if(n.getLocations() == null || n.getTransitions() == null || n.getNetLinks() == null)
 			return false;
-		if(checkExistence(n)) {
+		if(checkExistence(n.getId(), Menu.getNetworks())) {
 			System.out.println(GIA_PRESENTE);
 			return false;
 		}
@@ -247,7 +244,7 @@ public final class Menu_configuratore {
 			System.out.println(PADRE_NON_PRESENTE);
 			return false;
 		}
-		if(checkExistence(pn)) {
+		if(checkExistence(pn.getId(), Menu.getPetriNetworks())) {
 			System.out.println(GIA_PRESENTE);
 			return false;
 		}
@@ -270,7 +267,7 @@ public final class Menu_configuratore {
 			System.out.println(PADRE_P_NON_PRESENTE);
 			return false;
 		}
-		if(checkExistence(pnp)) {
+		if(checkExistence(pnp.getId(), Menu.getPriorityNetworks())) {
 			System.out.println(GIA_PRESENTE);
 			return false;
 		}
@@ -293,27 +290,10 @@ public final class Menu_configuratore {
 		return false;
 	}
 	
-	private static boolean checkExistence(Network n) {
-		for(int i : Menu.netIDs()) {
-			if(i == n.getId())
+	private static boolean checkExistence(int id, ArrayList<? extends IDNameGiver> toLook) {
+		for(IDNameGiver n : toLook)
+			if(n.getId() == id )
 				return true;
-		}
-		return false;
-	}
-	
-	private static boolean checkExistence(Petri_network pn) {
-		for(int i : Menu.pNetIDs()) {
-			if(i == pn.getId())
-				return true;
-		}
-		return false;
-	}
-	
-	private static boolean checkExistence(Priority_network pnp) {
-		for(int i : Menu.pnpNetIDs()) {
-			if(i == pnp.getId())
-				return true;
-		}
 		return false;
 	}
 }

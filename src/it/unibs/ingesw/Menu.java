@@ -7,6 +7,7 @@ import it.unibs.ingesw.ioGson.ReadN;
 import it.unibs.ingesw.ioGson.WriteN;
 import it.unibs.ingesw.utility.Utility;
 import it.unibs.ingesw.utility.UtilityRead;
+import it.unibs.ingesw.utility.UtilityVisua;
 
 
 public final class Menu {
@@ -47,10 +48,7 @@ public final class Menu {
 		loadSavedNets();
 		int select = -1;
 		do {
-			for (String s : MENUSTART) {
-				System.out.println(s);
-			}
-			
+			System.out.println(UtilityVisua.printMenu(MENUSTART));
 			select = Utility.readLimitedInt(0, MENUSTART.length-4);
 			switch (select) {
 				case 1:	//Collegamento con il menù configuratore

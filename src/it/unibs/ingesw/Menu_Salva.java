@@ -6,6 +6,7 @@ import it.unibs.ingesw.ioGson.ReadN;
 import it.unibs.ingesw.ioGson.WriteN;
 import it.unibs.ingesw.utility.Utility;
 import it.unibs.ingesw.utility.UtilityRead;
+import it.unibs.ingesw.utility.UtilityVisua;
 
 public final class Menu_Salva {
 
@@ -29,8 +30,7 @@ public final class Menu_Salva {
 			return;
 		}
 		int select = -1;
-		for (String s : MENUSALVA)
-			System.out.println(s);
+		System.out.println(UtilityVisua.printMenu(MENUSALVA));
 		select = Utility.readLimitedInt(0, MENUSALVA.length-4);
 		switch (select) {
 		case 0: //Indietro

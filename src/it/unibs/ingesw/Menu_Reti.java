@@ -39,9 +39,7 @@ public final class Menu_Reti {
 		createBase(network);
 		int select = -1;
 		do {
-			for (String s : MENU_RETI) {
-				System.out.println(s);
-			}
+			System.out.println(UtilityVisua.printMenu(MENU_RETI));
 			select = Utility.readLimitedInt(0, MENU_RETI.length-4);
 			int num = -1;
 			switch (select) {

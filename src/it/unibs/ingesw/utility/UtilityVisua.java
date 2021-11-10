@@ -30,4 +30,11 @@ public class UtilityVisua {
 			s.append(i++ + ") " + n.print());
 		return s;
 	}
+	
+	public static StringBuffer printMenu(String [] toPrint) {
+		StringBuffer out = new StringBuffer();
+		for(String s :toPrint)
+			out.append(s+"\n");
+		return out;
+		}
 }

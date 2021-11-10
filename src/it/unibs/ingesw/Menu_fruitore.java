@@ -1,6 +1,7 @@
 package it.unibs.ingesw;
 
 import it.unibs.ingesw.utility.Utility;
+import it.unibs.ingesw.utility.UtilityVisua;
 
 public final class Menu_fruitore {
 	
@@ -15,7 +16,7 @@ public final class Menu_fruitore {
 	public static void menuFruitore(){
 		int select = -1;
 		do {
-			printMenu(MENU_FRUITORE);
+			System.out.println(UtilityVisua.printMenu(MENU_FRUITORE));
 			select = Utility.readLimitedInt(0, MENU_FRUITORE.length-4);
 			
 			switch(select) {
@@ -30,10 +31,5 @@ public final class Menu_fruitore {
 			}
 		}while(select != 0);
 		
-	}
-	
-	public static void printMenu(String[] toPrint) {
-		for(String s : toPrint)
-			System.out.println(s);
 	}
 }
