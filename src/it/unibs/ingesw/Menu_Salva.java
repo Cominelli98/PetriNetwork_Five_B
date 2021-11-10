@@ -37,7 +37,7 @@ public final class Menu_Salva {
 			break;
 		case 1:	//Salva su file una rete 
 			System.out.println(RICHIESTA_SALVATAGGIO);
-			System.out.println(Menu_Visua.getNetsList(net));
+			System.out.println(UtilityVisua.numberedNamesPrint(net));
 			int i = Utility.readLimitedInt(0, net.size());
 			saveNetOnFile(net.get(i));
 			break;

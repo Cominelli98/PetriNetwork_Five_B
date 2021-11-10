@@ -127,6 +127,21 @@ public class Network implements GenericNetwork{
 	public int getLinkDestinationID(int i) {
 		return netLinks.get(i).getDestination();
 	}
+
+	@Override
+	public int getLinkOrientation(int i) {
+		return netLinks.get(i).getOrientation();
+	}
+
+	@Override
+	public int getlinkLocationID(int i) {
+		return netLinks.get(i).getLocation();
+	}
+
+	@Override
+	public int getLinkTransitionID(int i) {
+		return netLinks.get(i).getTransition();
+	}
 	
 	
 	

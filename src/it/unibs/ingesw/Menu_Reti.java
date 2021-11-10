@@ -142,9 +142,9 @@ public final class Menu_Reti {
 	private static boolean checkLinkExistence(Location l, Transition t, Network n, int orientation) {
 		
 		for (int i = 0; i < n.getLinks().size(); i++) {
-			if(n.getLinks().get(i).getLocation() == l.getId() &&
-					n.getLinks().get(i).getTransition() == t.getId() &&
-						n.getLinks().get(i).getOrientation() == orientation)
+			if(n.getlinkLocationID(i) == l.getId() &&
+					n.getLinkTransitionID(i) == t.getId() &&
+						n.getLinkOrientation(i) == orientation)
 				return true;
 		}
 		return false;

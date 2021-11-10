@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import it.unibs.ingesw.ioGson.ReadN;
 import it.unibs.ingesw.utility.Utility;
 import it.unibs.ingesw.utility.UtilityRead;
+import it.unibs.ingesw.utility.UtilityVisua;
 
 public final class Menu_Petri {
 
@@ -29,7 +30,7 @@ public final class Menu_Petri {
 			return;
 		}
 		System.out.println(MESSAGGI_MENU[0]);
-		System.out.println(Menu_Visua.getNetsList(ns));
+		System.out.println(UtilityVisua.numberedNamesPrint(ns));
 		int select = -1;
 		select = Utility.readLimitedInt(0, ns.size()-1);
 		String name;
@@ -51,7 +52,6 @@ public final class Menu_Petri {
 	 * @return true se la rete è già presente, false se non c'è
 	 */
 	private static boolean petriExistence(Petri_network toAdd, ArrayList<Petri_network> pn) {
-		
 		if(pn.size() == 0) {
 			return false;
 		}

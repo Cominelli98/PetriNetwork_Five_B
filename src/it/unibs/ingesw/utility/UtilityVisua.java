@@ -3,6 +3,7 @@ package it.unibs.ingesw.utility;
 import java.util.ArrayList;
 
 import it.unibs.ingesw.GenericNetwork;
+import it.unibs.ingesw.IDNameGiver;
 import it.unibs.ingesw.Link;
 import it.unibs.ingesw.Node;
 
@@ -30,6 +31,15 @@ public class UtilityVisua {
 			s.append(i++ + ") " + n.print());
 		return s;
 	}
+	
+	public static StringBuffer numberedNamesPrint(ArrayList<? extends IDNameGiver> toList) {
+		StringBuffer s = new StringBuffer();
+		int i=0;
+		for (IDNameGiver temp : toList)
+			s.append(i++ + ") " + temp.getName());
+		return s;
+	}
+	
 	
 	public static StringBuffer printMenu(String [] toPrint) {
 		StringBuffer out = new StringBuffer();

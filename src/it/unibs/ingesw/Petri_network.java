@@ -171,4 +171,19 @@ public class Petri_network implements GenericNetwork{
 		return petriNetLinks.get(i).getDestination();
 	}
 
+	@Override
+	public int getLinkOrientation(int i) {
+		return petriNetLinks.get(i).getOrientation();
+	}
+
+	@Override
+	public int getlinkLocationID(int i) {
+		return petriNetLinks.get(i).getLocation();
+	}
+
+	@Override
+	public int getLinkTransitionID(int i) {
+		return petriNetLinks.get(i).getTransition();
+	}
+
 }

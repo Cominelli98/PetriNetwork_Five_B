@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import it.unibs.ingesw.ioGson.ReadN;
 import it.unibs.ingesw.utility.Utility;
 import it.unibs.ingesw.utility.UtilityRead;
+import it.unibs.ingesw.utility.UtilityVisua;
 
 public final class Menu_Pnp {
 
@@ -29,7 +30,7 @@ public final class Menu_Pnp {
 			return;
 		}
 		System.out.println(MESSAGGI_MENU[0]);
-		System.out.println(Menu_Visua.getNetsList(pn));
+		System.out.println(UtilityVisua.numberedNamesPrint(pn));
 		int select = -1;
 		select = Utility.readLimitedInt(0, pn.size()-1);
 		String name;

@@ -23,5 +23,11 @@ public interface GenericNetwork extends IDNameGiver, Printable{
 	public String getLinkDestination(int i);
 	
 	public int getLinkDestinationID(int i);
+	
+	public int getLinkOrientation(int i);
+	
+	public int getlinkLocationID(int i);
+	
+	public int getLinkTransitionID(int i);
 
 }
