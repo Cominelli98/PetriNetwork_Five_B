@@ -126,6 +126,14 @@ public class Petri_network implements GenericNetwork{
 				pl.addToken(quantity);
 		}
 	}
+	
+	public int getLocationValue(int i) {
+		return petriLocations.get(i).getValue();
+	}
+	
+	public int getLocationID(int i) {
+		return petriLocations.get(i).getId();
+	}
 
 	@Override
 	public String getLinkOrigin(int i) {
@@ -147,6 +155,16 @@ public class Petri_network implements GenericNetwork{
 		s.append("ELENCO LINKS: \n");
 		s.append(UtilityVisua.linksList(this));
 		return s;
+	}
+
+	@Override
+	public int getLinkOriginID(int i) {
+		return petriNetLinks.get(i).getOrigin();
+	}
+
+	@Override
+	public int getLinkDestinationID(int i) {
+		return petriNetLinks.get(i).getDestination();
 	}
 
 }

@@ -3,6 +3,7 @@ package it.unibs.ingesw;
 import java.util.ArrayList;
 
 import it.unibs.ingesw.utility.Utility;
+import it.unibs.ingesw.utility.UtilityVisua;
 
 public class Simulatore {
 
@@ -46,9 +47,7 @@ public class Simulatore {
 	private void stampAttivabili() {
 		ArrayList<Petri_transition> transizioni = topPriorityTransitions();
 		System.out.println("Lista transizioni attivabili:");
-		for (int i = 0; i < transizioni.size(); i++) {
-			System.out.println(i + ") " + transizioni.get(i).getName());
-		}
+		System.out.println(UtilityVisua.nodesPrint(transizioni));
 	}
 	
 	/**
@@ -69,7 +68,6 @@ public class Simulatore {
 		}
 		return risultato;
 	}
-	
 	
 	/**
 	 * Ritorna un arrayList contenente tutte le transazioni attivabili 
@@ -96,9 +94,9 @@ public class Simulatore {
 		if(!checkIfOneLinkExistWithTrans(pt))
 			return false;
 		for (int i = 0; i< rete.getLinks().size(); i++) {
-			if (rete.getLinks().get(i).getDestination() == pt.getId()) {
-				x = getIndexOfLocation(rete.getLinks().get(i).getOrigin());
-				if(rete.getLocations().get(x).getValue() < pt.getValue())
+			if (rete.getLinkDestinationID(i) == pt.getId()) {
+				x = getIndexOfLocation(rete.getLinkOriginID(i));
+				if(rete.getLocationValue(x)< pt.getValue())
 					return false;
 			}
 		}
@@ -112,7 +110,7 @@ public class Simulatore {
 	 */
 	private boolean checkIfOneLinkExistWithTrans(Petri_transition pt) {
 		for(int i = 0; i< rete.getLinks().size(); i++) {
-			if(rete.getLinks().get(i).getDestination() == pt.getId())
+			if(rete.getLinkDestinationID(i) == pt.getId())
 				return true;
 		}
 		return false;
@@ -125,7 +123,7 @@ public class Simulatore {
 	
 	private int getIndexOfLocation(int toFind) {
 		for (int i = 0; i < rete.getLocations().size(); i++) {
-			if(rete.getLocations().get(i).getId() == toFind)
+			if(rete.getLocationID(i) == toFind)
 				return i;
 		}
 		return 0;

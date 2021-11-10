@@ -140,6 +140,16 @@ public class Network implements GenericNetwork{
 		s.append(UtilityVisua.linksList(this));
 		return s;
 	}
+
+	@Override
+	public int getLinkOriginID(int i) {
+		return netLinks.get(i).getOrigin();
+	}
+
+	@Override
+	public int getLinkDestinationID(int i) {
+		return netLinks.get(i).getDestination();
+	}
 	
 	
 	
