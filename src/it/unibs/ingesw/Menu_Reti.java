@@ -41,41 +41,47 @@ public final class Menu_Reti {
 		do {
 			System.out.println(UtilityVisua.printMenu(MENU_RETI));
 			select = Utility.readLimitedInt(0, MENU_RETI.length-4);
-			int num = -1;
 			switch (select) {
-				
 				case 0:	//Indietro
 					break;
 				case 1:
 					createLocation(network);
-					System.out.println(ASKLINK);
-					System.out.print(UtilityVisua.numberedNodesPrint(network.getTransitions()));
-					num = Utility.readLimitedInt(0, network.getTransitions().size()-1);
-					createLink(network.getTransition(num), network.getLastLocation(), network);
-					num = -1;
+					connectLocation(network);		
 					break;
 				case 2:	//Creazione di una transizione
 					createTransition(network);
-					System.out.println(ASKLINK);
-					System.out.print(UtilityVisua.numberedNodesPrint(network.getLocations()));
-					num = Utility.readLimitedInt(0, network.getLocations().size()-1);
-					createLink(network.getLastTransition(), network.getLocation(num), network);
-					num = -1;
+					connectTransition(network);
 					break;
 				case 3:	//Creazione di un link
-					int loc;
-					int trans;
-					System.out.println("ELENCO LOCATIONS");
-					System.out.print(UtilityVisua.numberedNodesPrint(network.getLocations()));
-					loc = Utility.readLimitedInt(0, network.getLocations().size()-1);
-					System.out.println(ASKLINK);
-					System.out.println("ELENCO TRANSITIONS");
-					System.out.print(UtilityVisua.numberedNodesPrint(network.getTransitions()));
-					trans = Utility.readLimitedInt(0, network.getTransitions().size()-1);
-					createLink(network.getTransition(trans), network.getLocation(loc), network);
+					linkCreation(network);
 					break;
 			}
 		}while(select != 0);
+	}
+	
+	private static void connectLocation(Network n) {
+		System.out.println(ASKLINK);
+		System.out.print(UtilityVisua.numberedNodesPrint(n.getTransitions()));
+		int num = Utility.readLimitedInt(0, n.getTransitions().size()-1);
+		createLink(n.getTransition(num), n.getLastLocation(), n);
+	}
+	
+	private static void connectTransition(Network n) {
+		System.out.println(ASKLINK);
+		System.out.print(UtilityVisua.numberedNodesPrint(n.getLocations()));
+		int num = Utility.readLimitedInt(0, n.getLocations().size()-1);
+		createLink(n.getLastTransition(), n.getLocation(num), n);
+	}
+	
+	private static void linkCreation(Network n) {
+		System.out.println("ELENCO LOCATIONS");
+		System.out.print(UtilityVisua.numberedNodesPrint(n.getLocations()));
+		int loc = Utility.readLimitedInt(0, n.getLocations().size()-1);
+		System.out.println(ASKLINK);
+		System.out.println("ELENCO TRANSITIONS");
+		System.out.print(UtilityVisua.numberedNodesPrint(n.getTransitions()));
+		int trans = Utility.readLimitedInt(0, n.getTransitions().size()-1);
+		createLink(n.getTransition(trans), n.getLocation(loc), n);
 	}
 	
 	/**
@@ -152,9 +158,7 @@ public final class Menu_Reti {
 	
 	
 	private static Network networkInitializer(ArrayList<Network> ns) {
-		String name;
-		boolean exists = false;
-		name = Utility.readCheckedName(ns, INSERIMENTO_RETE, NOME_GIA_PRESENTE_RETE);
+		String name = Utility.readCheckedName(ns, INSERIMENTO_RETE, NOME_GIA_PRESENTE_RETE);
 		Network network = new Network(name);
 		ns.add(network);
 		return network;
