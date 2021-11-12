@@ -3,6 +3,7 @@ package it.unibs.ingesw;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+import it.unibs.ingesw.ioGson.FromJson;
 import it.unibs.ingesw.ioGson.ReadN;
 import it.unibs.ingesw.ioGson.WriteN;
 import it.unibs.ingesw.utility.Utility;
@@ -82,11 +83,11 @@ public final class Menu {
 				e1.printStackTrace();
 			}
 			for(String s : n) 
-				networks.add((Network) ReadN.jsonToObject(s, Network.class));
+				networks.add((Network) FromJson.convert(s, Network.class));
 			for(String s : pn)
-				petriNetworks.add((Petri_network) ReadN.jsonToObject(s, Petri_network.class));
+				petriNetworks.add((Petri_network) FromJson.convert(s, Petri_network.class));
 			for(String s : pnp)
-				priorityNetworks.add((Priority_network) ReadN.jsonToObject(s, Priority_network.class));
+				priorityNetworks.add((Priority_network) FromJson.convert(s, Priority_network.class));
 	}
 	
 	public static ArrayList<Network> getNetworks(){
@@ -143,7 +144,7 @@ public final class Menu {
 				f.printStackTrace();
 			}
 		for(String net : s) {
-			n.add((Network) ReadN.jsonToObject(net, Network.class));
+			n.add((Network) FromJson.convert(net, Network.class));
 		}
 		return n;
 	}
@@ -157,7 +158,7 @@ public final class Menu {
 				f.printStackTrace();
 			}
 		for(String net : s) {
-			pn.add((Petri_network) ReadN.jsonToObject(net, Petri_network.class));
+			pn.add((Petri_network) FromJson.convert(net, Petri_network.class));
 		}
 		return pn;
 	}
@@ -171,7 +172,7 @@ public final class Menu {
 				f.printStackTrace();
 			}
 		for(String net : s) {
-			pnp.add((Priority_network) ReadN.jsonToObject(net, Priority_network.class));
+			pnp.add((Priority_network) FromJson.convert(net, Priority_network.class));
 		}
 		return pnp;
 	}

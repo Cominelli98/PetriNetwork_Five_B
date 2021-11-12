@@ -26,10 +26,6 @@ public final class ReadN {
 	 * @param c Class: classe in cui viene convertita
 	 * @return oggetto della classe c
 	 */
-	public static Object jsonToObject(String s, Class c ) {
-		Gson gson = new Gson();
-		return gson.fromJson(s,c);
-	}
 	
 	public static Object loadFromSource(Class c, String source ) throws FileNotFoundException, IOException {
 		BufferedReader reader;

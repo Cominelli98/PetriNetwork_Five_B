@@ -3,6 +3,7 @@ package it.unibs.ingesw;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+import it.unibs.ingesw.ioGson.FromJson;
 import it.unibs.ingesw.ioGson.ReadN;
 import it.unibs.ingesw.utility.Utility;
 import it.unibs.ingesw.utility.UtilityRead;
@@ -108,7 +109,7 @@ public final class Menu_Pnp {
 		System.out.println("Scegli di quale PNp vuoi simulare l'evoluzione");
 		System.out.println(UtilityRead.getNetNamesList(Priority_network.class));
 		scelta = Utility.readLimitedInt(0, s.size()-1);
-		rete = (Priority_network) ReadN.jsonToObject(s.get(scelta), Priority_network.class);
+		rete = (Priority_network) FromJson.convert(s.get(scelta), Priority_network.class);
 		daSimulare = new Simulatore(rete);
 		System.out.println("STATO DI PARTENZA:");
 		System.out.println(rete.print());

@@ -3,6 +3,7 @@ package it.unibs.ingesw;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+import it.unibs.ingesw.ioGson.FromJson;
 import it.unibs.ingesw.ioGson.ReadN;
 import it.unibs.ingesw.utility.Utility;
 import it.unibs.ingesw.utility.UtilityRead;
@@ -125,7 +126,7 @@ public final class Menu_Petri {
 		System.out.println("Scegli di quale rete di Petri vuoi simulare l'evoluzione");
 		System.out.println(UtilityRead.getNetNamesList(Petri_network.class));
 		scelta = Utility.readLimitedInt(0, s.size()-1);
-		rete = (Petri_network) ReadN.jsonToObject(s.get(scelta), Petri_network.class);
+		rete = (Petri_network) FromJson.convert(s.get(scelta), Petri_network.class);
 		daSimulare = new Simulatore(rete);
 		System.out.println("STATO DI PARTENZA:");
 		System.out.println(rete.print());;
