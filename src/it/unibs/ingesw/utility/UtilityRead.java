@@ -77,7 +77,7 @@ public class UtilityRead {
 		ArrayList<String> nets = ReadN.readFile(c);
 		ArrayList<String> names = new ArrayList<>();
 		for(String s : nets) {
-			IDNameGiver n = (IDNameGiver) ReadN.jsonToObject(s, c);
+			IDNameGiver n = (IDNameGiver) FromJson.convert(s, c);
 			names.add(n.getName());
 		}
 		return names;
