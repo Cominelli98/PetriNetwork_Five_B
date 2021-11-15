@@ -2,9 +2,6 @@ package it.unibs.ingesw.utility;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-
-import com.google.gson.Gson;
-
 import it.unibs.ingesw.IDNameGiver;
 import it.unibs.ingesw.ioGson.FromJson;
 import it.unibs.ingesw.ioGson.ReadN;
