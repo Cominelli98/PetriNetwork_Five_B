@@ -11,7 +11,7 @@ public class UtilityPrint {
 	
 	public static StringBuffer printObjct(Printable item) {
 		StringBuffer print = new StringBuffer();
-		for(String s : item.print())
+		for(String s : item.getInformation())
 			print.append(s+ "  ");
 		print.append("\n");
 		return print;
@@ -29,13 +29,13 @@ public class UtilityPrint {
 		StringBuffer print = new StringBuffer();
 		print.append("ELENCO LOCATIONS: \n");
 		for(Node node : n.getLocations()) {
-			for(String s : node.print())
+			for(String s : node.getInformation())
 				print.append(s + "  ");
 			print.append("\n");
 		}
 		print.append("ELENCO TRANSITION: \n");
 		for(Node node : n.getTransitions()) {
-			for(String s : node.print())
+			for(String s : node.getInformation())
 				print.append(s + "  ");
 			print.append("\n");
 		}

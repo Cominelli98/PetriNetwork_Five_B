@@ -54,7 +54,7 @@ public class Petri_location implements PetriNode{
 	}
 
 	@Override
-	public ArrayList<String> print() {
+	public ArrayList<String> getInformation() {
 		ArrayList<String> information = new ArrayList<>();
 		information.add(this.getName());
 		information.add("token");

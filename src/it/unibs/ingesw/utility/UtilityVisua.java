@@ -21,7 +21,7 @@ public class UtilityVisua {
 		StringBuffer s = new StringBuffer("");
 		int i=0;
 		for (Node n : nodes)
-			s.append(i++ + ") " + n.print());
+			s.append(i++ + ") " + n.getInformation());
 		return s;
 	}
 	
