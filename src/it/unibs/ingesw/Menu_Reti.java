@@ -3,7 +3,6 @@ package it.unibs.ingesw;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-import it.unibs.ingesw.ioGson.ReadN;
 import it.unibs.ingesw.utility.Utility;
 import it.unibs.ingesw.utility.UtilityVisua;
 
