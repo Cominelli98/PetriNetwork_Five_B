@@ -7,8 +7,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import com.google.gson.Gson;
-
 	//TODO:	creazione classe di utilità per la semplificazione dei getters
 
 public final class ReadN {
@@ -18,7 +16,6 @@ public final class ReadN {
 											"pn_data.txt",
 											"pnp_data.txt"};
 	private static final Class CLASSES[] = {Network.class, Petri_network.class, Priority_network.class};
-
 
 	/**
 	 * prende in ingresso una stringa e la converte in un oggetto della classe c

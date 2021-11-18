@@ -1,5 +1,7 @@
 package it.unibs.ingesw;
 
+import java.util.ArrayList;
+
 public class Transition implements Node {
 
 	private int netId;
@@ -28,10 +30,10 @@ public class Transition implements Node {
 		return netId;
 	}
 	
-	public StringBuffer print() {
-		StringBuffer s = new StringBuffer("");
-		s.append(nodeName+"\n");
-		return s;
+	public ArrayList<String> print() {
+		ArrayList<String> information = new ArrayList<>();
+		information.add(this.getName());
+		return information;
 	}
 
 }

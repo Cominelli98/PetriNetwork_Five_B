@@ -1,5 +1,7 @@
 package it.unibs.ingesw;
 
+import java.util.ArrayList;
+
 public class Location implements Node{
 
 	private int netId;
@@ -29,10 +31,10 @@ public class Location implements Node{
 	}
 
 	@Override
-	public StringBuffer print() {
-		StringBuffer s = new StringBuffer("");
-		s.append(name+"\n");
-		return s;
+	public ArrayList<String> print() {
+		ArrayList<String> information = new ArrayList<>();
+		information.add(this.getName());
+		return information;
 	}
 
 }

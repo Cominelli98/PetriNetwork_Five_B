@@ -1,5 +1,7 @@
 package it.unibs.ingesw;
 
+import java.util.ArrayList;
+
 public class Petri_transition implements PetriNode{
 	private int cost;
 	private int priority;
@@ -49,12 +51,15 @@ public class Petri_transition implements PetriNode{
 	}
 
 	@Override
-	public StringBuffer print() {
-		StringBuffer s = new StringBuffer("");
-		if(priority == -1)
-			s.append(nodeName + "  " + "costo: " + cost + "\n");
-		else
-			s.append(nodeName + "  " + "costo: " + cost + "   priorità:" + priority + "\n");
-		return s;
+	public ArrayList<String> print() {
+		ArrayList<String> information = new ArrayList<>();
+		information.add(this.getName());
+		information.add("costo");
+		information.add(String.valueOf(this.cost));
+		if(this.priority != -1) {
+			information.add("priorità");
+			information.add(String.valueOf(this.priority));
+		}
+		return information;
 	}
 }

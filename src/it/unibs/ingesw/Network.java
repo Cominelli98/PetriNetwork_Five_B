@@ -105,7 +105,7 @@ public class Network implements GenericNetwork{
 	public String getLinkDestination(int i) {
 		return nodeNameFromID(netLinks.get(i).getDestination()); 
 	}
-
+	/*
 	@Override
 	public StringBuffer print() {
 		StringBuffer s = new StringBuffer("");
@@ -117,7 +117,7 @@ public class Network implements GenericNetwork{
 		s.append(UtilityVisua.linksList(this));
 		return s;
 	}
-
+	*/
 	@Override
 	public int getLinkOriginID(int i) {
 		return netLinks.get(i).getOrigin();

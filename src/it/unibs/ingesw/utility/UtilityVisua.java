@@ -17,13 +17,6 @@ public class UtilityVisua {
 		return list;
 	}
 	
-	public static StringBuffer nodesPrint(ArrayList<? extends Node> nodes) {
-		StringBuffer s = new StringBuffer("");
-		for (Node n : nodes)
-			s.append(n.print());
-		return s;
-	}
-	
 	public static StringBuffer numberedNodesPrint(ArrayList<? extends Node> nodes) {
 		StringBuffer s = new StringBuffer("");
 		int i=0;

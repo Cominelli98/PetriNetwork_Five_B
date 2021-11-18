@@ -1,5 +1,7 @@
 package it.unibs.ingesw;
 
+import java.util.ArrayList;
+
 public class Petri_location implements PetriNode{
 	
 	private int token;
@@ -52,10 +54,12 @@ public class Petri_location implements PetriNode{
 	}
 
 	@Override
-	public StringBuffer print() {
-		StringBuffer s = new StringBuffer("");
-		s.append(nodeName +"  "+ "token:" + token  + "\n");
-		return s;
+	public ArrayList<String> print() {
+		ArrayList<String> information = new ArrayList<>();
+		information.add(this.getName());
+		information.add("token");
+		information.add(String.valueOf(this.token));
+		return information;
 	}
 	
 }

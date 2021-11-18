@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import it.unibs.ingesw.ioGson.FromJson;
 import it.unibs.ingesw.ioGson.ReadN;
 import it.unibs.ingesw.utility.Utility;
+import it.unibs.ingesw.utility.UtilityPrint;
 import it.unibs.ingesw.utility.UtilityRead;
 import it.unibs.ingesw.utility.UtilityVisua;
 
@@ -129,7 +130,7 @@ public final class Menu_Petri {
 		rete = (Petri_network) FromJson.convert(s.get(scelta), Petri_network.class);
 		daSimulare = new Simulatore(rete);
 		System.out.println("STATO DI PARTENZA:");
-		System.out.println(rete.print());;
+		System.out.println(UtilityPrint.PrintObjct(rete));;
 		do {
 			System.out.println("MARCATURA SUCCESSIVA:");
 			daSimulare.nextStep();

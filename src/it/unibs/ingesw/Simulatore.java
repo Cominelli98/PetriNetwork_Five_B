@@ -3,6 +3,7 @@ package it.unibs.ingesw;
 import java.util.ArrayList;
 
 import it.unibs.ingesw.utility.Utility;
+import it.unibs.ingesw.utility.UtilityPrint;
 import it.unibs.ingesw.utility.UtilityVisua;
 
 public class Simulatore {
@@ -29,7 +30,7 @@ public class Simulatore {
 			stampAttivabili();
 			System.out.println("C'è un'unica transizione attivabile, prossimo step:");
 			modificaToken(transizioniAttivabili.get(0));
-			System.out.println(rete.print());
+			System.out.println(UtilityPrint.PrintObjct(rete));
 			}
 		else {
 			//stampa a video, richiede la scelta, esegue
@@ -37,7 +38,7 @@ public class Simulatore {
 			stampAttivabili();
 			int scelta = Utility.readLimitedInt(0, transizioniAttivabili.size() -1);
 			modificaToken(transizioniAttivabili.get(scelta));
-			System.out.println(rete.print());
+			System.out.println(UtilityPrint.PrintObjct(rete));
 		}
 	}
 	
@@ -47,7 +48,7 @@ public class Simulatore {
 	private void stampAttivabili() {
 		ArrayList<Petri_transition> transizioni = topPriorityTransitions();
 		System.out.println("Lista transizioni attivabili:");
-		System.out.println(UtilityVisua.nodesPrint(transizioni));
+		System.out.println(UtilityPrint.printObjct(transizioni));
 	}
 	
 	/**

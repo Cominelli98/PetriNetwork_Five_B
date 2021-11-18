@@ -1,47 +1,47 @@
 package it.unibs.ingesw.utility;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 import it.unibs.ingesw.GenericNetwork;
-import it.unibs.ingesw.Link;
-import it.unibs.ingesw.NetworkNode;
 import it.unibs.ingesw.Node;
-import it.unibs.ingesw.PetriNode;
+import it.unibs.ingesw.Printable;
 
 
-public final class UtilityPrint {
+public class UtilityPrint {
 	
-	public static StringBuffer getList(GenericNetwork net) {
-		StringBuffer list = new StringBuffer();
-		ArrayList<Link> links = net.getLinks();
-		for(int i = 0 ; i < links.size() ; i++) {
-			list.append(net.getLinkOrigin(i)+" ----> "+net.getLinkDestination(i)+"\n");
+	public static StringBuffer printObjct(Printable item) {
+		StringBuffer print = new StringBuffer();
+		for(String s : item.print())
+			print.append(s+ "  ");
+		print.append("\n");
+		return print;
+	}
+	
+	public static StringBuffer printObjct(ArrayList<? extends Printable> items) {
+		StringBuffer print = new StringBuffer();
+		for(Printable item : items)
+			print.append(printObjct(item));
+		return print;
+
+	}
+	
+	public static StringBuffer PrintObjct(GenericNetwork n) {
+		StringBuffer print = new StringBuffer();
+		print.append("ELENCO LOCATIONS: \n");
+		for(Node node : n.getLocations()) {
+			for(String s : node.print())
+				print.append(s + "  ");
+			print.append("\n");
 		}
-		return list;
+		print.append("ELENCO TRANSITION: \n");
+		for(Node node : n.getTransitions()) {
+			for(String s : node.print())
+				print.append(s + "  ");
+			print.append("\n");
+		}
+		print.append("ELENCO LINK: \n");
+		print.append(UtilityVisua.linksList(n));
+		return print;
 	}
 	
-	public static String printNode(NetworkNode node) {
-		return node.getName()+"\n";
-	}
-	
-	public static String printNode(PetriNode node) {
-		return node.getName()+"  "+stringValue(node)+"  "+stringPriority(node)+"\n";
-	}
-	
-	private static String getValueName(PetriNode pn, int variable) {
-		Field f[] = pn.getClass().getDeclaredFields();
-		return f[variable].getName();
-	}
-	
-	private static String stringValue(PetriNode pn) {
-		return getValueName(pn, 0)+": "+pn.getValue();
-	}
-	
-	private static String stringPriority(PetriNode pn) {
-		if(pn.getPriority() == -1)
-			return null;
-		return "priorità: "+Integer.toString(pn.getPriority());
-	}
 }		
-

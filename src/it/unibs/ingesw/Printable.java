@@ -1,5 +1,7 @@
 package it.unibs.ingesw;
 
+import java.util.ArrayList;
+
 public interface Printable {
-	public StringBuffer print();
+	public ArrayList<String> print();
 }

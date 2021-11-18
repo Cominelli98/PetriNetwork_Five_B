@@ -35,18 +35,18 @@ public final class Menu_Visua {
 			switch(select) {
 			case 1:	//Visualizza l'elenco delle locatione di una rete
 				System.out.println("ELENCO LOCATIONS:");
-				System.out.println(UtilityVisua.nodesPrint(ns.get(i).getLocations()));
+				System.out.println(UtilityPrint.printObjct(ns.get(i).getLocations()));
 				break;
 			case 2:	//Visualizza l'elenco delle transition di una rete
 				System.out.println("ELENCO TRANSITIONS:");
-				System.out.println(UtilityVisua.nodesPrint(ns.get(i).getTransitions()));
+				System.out.println(UtilityPrint.printObjct(ns.get(i).getTransitions()));
 				break;
 			case 3:	//Visualizza l'elenco dei link di una rete
 				System.out.println("ELENCO LINKS:");
-				UtilityVisua.linksList(ns.get(i));
+				System.out.println(UtilityVisua.linksList(ns.get(i)));
 				break;
 			case 4:	//Visualizza la rete complessiva
-				System.out.println(ns.get(i).print());
+				System.out.println(UtilityPrint.PrintObjct(ns.get(i)));
 				break;
 			case 0:	//indietro
 				break;
