@@ -100,8 +100,6 @@ public final class Menu_Pnp {
 		ArrayList<String> s = new ArrayList<String>();
 		Simulatore daSimulare;
 		Priority_network rete;
-		int scelta;
-		int selezione;
 		try {
 			s = ReadN.readFile(Priority_network.class);
 		} catch (FileNotFoundException f) {
@@ -109,8 +107,7 @@ public final class Menu_Pnp {
 		}
 		System.out.println("Scegli di quale PNp vuoi simulare l'evoluzione");
 		System.out.println(UtilityRead.getNetNamesList(Priority_network.class));
-		scelta = Utility.readLimitedInt(0, s.size()-1);
-		rete = (Priority_network) FromJson.convert(s.get(scelta), Priority_network.class);
+		rete = (Priority_network) FromJson.convert(s.get(Utility.readLimitedInt(0, s.size()-1)), Priority_network.class);
 		daSimulare = new Simulatore(rete);
 		System.out.println("STATO DI PARTENZA:");
 		System.out.println(UtilityPrint.PrintObjct(rete));
@@ -118,7 +115,6 @@ public final class Menu_Pnp {
 			System.out.println("MARCATURA SUCCESSIVA:");
 			daSimulare.nextStep();
 			System.out.println("Vuoi proseguire con la simulazione? \n 0)Esci \n 1)Prosegui");
-			selezione = Utility.readLimitedInt(0, 1);
-		}while(selezione!=0);
+		}while(Utility.readLimitedInt(0, 1) != 0);
 	}
 }

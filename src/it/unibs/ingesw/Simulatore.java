@@ -97,7 +97,7 @@ public class Simulatore {
 		for (int i = 0; i< rete.getLinks().size(); i++) {
 			if (rete.getLinkDestinationID(i) == pt.getId()) {
 				x = getIndexOfLocation(rete.getLinkOriginID(i));
-				if(rete.getLocationValue(x)< pt.getValue())
+				if(rete.getLocationValue(x) < pt.getValue())
 					return false;
 			}
 		}
@@ -128,5 +128,10 @@ public class Simulatore {
 				return i;
 		}
 		return 0;
+	}
+	
+	public boolean AttivabilitaTest(Petri_transition pt){
+		return attivabile(pt);
+		
 	}
 }
