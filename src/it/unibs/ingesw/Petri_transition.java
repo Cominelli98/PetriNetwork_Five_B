@@ -35,7 +35,7 @@ public class Petri_transition implements PetriNode{
 		return this.cost;
 	}
 	
-	@Override
+
 	public int getNetID() {
 		return netId;
 	}

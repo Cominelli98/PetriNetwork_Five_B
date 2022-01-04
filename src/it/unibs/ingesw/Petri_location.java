@@ -33,7 +33,7 @@ public class Petri_location implements PetriNode{
 		token = token + addition;
 	}
 
-	@Override
+	
 	public int getNetID() {
 		return netId;
 	}
