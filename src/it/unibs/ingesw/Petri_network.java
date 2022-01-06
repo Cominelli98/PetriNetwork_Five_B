@@ -149,18 +149,7 @@ public class Petri_network implements GenericNetwork{
 		// TODO Auto-generated method stub
 		return nodeNameFromID(petriNetLinks.get(i).getDestination());
 	}
-	/*
-	public StringBuffer print() {
-		StringBuffer s = new StringBuffer("");
-		s.append("ELENCO LOCATIONS: \n");
-		s.append(UtilityVisua.nodesPrint(petriLocations));
-		s.append("ELENCO TRANSITIONS: \n");
-		s.append(UtilityVisua.nodesPrint(petriTransitions));
-		s.append("ELENCO LINKS: \n");
-		s.append(UtilityVisua.linksList(this));
-		return s;
-	}
-	*/
+
 	@Override
 	public int getLinkOriginID(int i) {
 		return petriNetLinks.get(i).getOrigin();

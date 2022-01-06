@@ -39,7 +39,7 @@ public final class ReadN {
 	}
 	
 	/**
-	 * legge l'intero file e riìestituisce un arrayList in cui ogni stringa rappresenta una riga nel file, e quindi un oggetto 
+	 * legge l'intero file e restituisce un arrayList in cui ogni stringa rappresenta una riga nel file, e quindi un oggetto 
 	 * @param c classe, serve per scegliere quale file andare a leggere
 	 * @return ArrayList<String>
 	 * @throws FileNotFoundException
