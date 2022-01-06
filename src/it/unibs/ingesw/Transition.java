@@ -2,7 +2,7 @@ package it.unibs.ingesw;
 
 import java.util.ArrayList;
 
-public class Transition implements Node {
+public class Transition implements NetworkNode {
 
 	private int netId;
 	private int nodeId;

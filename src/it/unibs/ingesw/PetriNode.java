@@ -1,5 +1,5 @@
 package it.unibs.ingesw;
 
-public interface PetriNode extends Printable, ValueGiver, IDNameGiver{
+public interface PetriNode extends ValueGiver, Node{
 	public int getPriority();
 }

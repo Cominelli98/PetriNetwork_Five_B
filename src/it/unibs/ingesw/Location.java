@@ -2,7 +2,7 @@ package it.unibs.ingesw;
 
 import java.util.ArrayList;
 
-public class Location implements Node{
+public class Location implements NetworkNode{
 
 	private int netId;
 	private int nodeId;

@@ -29,7 +29,7 @@ public class UtilityVisua {
 		StringBuffer s = new StringBuffer();
 		int i=0;
 		for (IDNameGiver temp : toList)
-			s.append(i++ + ") " + temp.getName());
+			s.append(i++ + ") " + temp.getName() + "\n");
 		return s;
 	}
 	
